@@ -1,0 +1,1283 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<!--  <constant name="struts.custom.i18n.resources" value="valid" />-->
+	<constant name="struts.custom.i18n.resources" value="i18n.test" />
+	<!--      <constant name="struts.devMode" value="true" />-->
+	<constant name="struts.multipart.maxSize" value="55971520" />
+	<constant name="struts.i18n.encoding" value="ISO-8859-1" />
+	
+	
+
+	<package name="non_member_actions" namespace="/"
+		extends="hibernate-default">
+
+		<interceptors>
+			<interceptor name="auto_connect_interceptor"
+				class="interceptor.AutoConnect_interceptor" />
+			<interceptor name="BookOfTheDay" class="interceptor.BookOfTheDay_interceptor" />
+			<interceptor name="New_message_received" class="interceptor.New_message_received_interceptor" />
+			
+			<interceptor-stack name="stack_member_check">
+				<interceptor-ref name="defaultStackHibernate" />
+				<interceptor-ref name="auto_connect_interceptor" />
+				<interceptor-ref name="New_message_received" />
+				<interceptor-ref name="BookOfTheDay" />
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="stack_member_check" />
+
+	<global-results>
+		
+		<result name="error_access_member" >/vue/login.jsp</result>
+		              
+		</global-results>	
+
+		<action name="main" class="action.login.Login" method="showMain">
+			<result name="success">/index.jsp</result>
+			<result name="input">/index.jsp</result>
+
+
+		</action>
+		
+		<action name="cgu" >
+			<result >/vue/cgu.jsp</result>
+		
+
+
+		</action>
+		
+		<action name="interdiction" >
+			<result >/vue/interdiction.jsp</result>
+		
+
+
+		</action>
+		
+	
+		
+		
+		
+			<action name="reglement" >
+			<result >/vue/reglement.jsp</result>
+		
+
+
+		</action>
+		
+		<action name="show_inscription" class="action.register.Register"
+			method="showRegisterForm">
+			<result name="success">vue/register.jsp</result>
+
+		</action>
+
+		<action name="save_register" class="action.register.Register"
+			method="checkRegister">
+			<result name="success_no_img">/vue/registerConfirm.jsp</result>
+			<result name="input">vue/register.jsp</result>
+			<result name="success">/vue/cropImageAvatar_inscription.jsp</result>
+			
+			
+		</action>
+		
+			<action name="resend_register" class="action.register.Register"
+			method="resend_register">
+			<result name="success">/vue/registerConfirm.jsp</result>
+			
+			
+			
+			
+		</action>
+		
+
+		
+				<action name="cropImageAvatar_register" class="action.register.Register" method="cropImageAvatar_register">
+			<result name="success" >
+			 
+		/vue/registerConfirm.jsp
+			
+			</result>
+			<result name="input" >
+			/vue/registerConfirm.jsp
+			
+	
+			</result>
+
+
+		</action>
+
+		<action name="verifLogin" class="action.login.Login" method="checkUser">
+			<result name="success" type="chain">
+				<!--<param name="actionName">show_home</param>-->
+				
+				         
+                <param name="actionName">${#session['lastAction']}</param>  
+                
+        		
+        
+			</result>
+			<result name="error">/vue/login.jsp</result>
+			<result name="noconfirm">/vue/noconfirm.jsp</result>
+
+		</action>
+
+		<action name="showAllcategories" class="action.seekbook.CategorySeek"
+			method="showListCategories">
+			<result name="success">/vue/categoryListPage.jsp</result>
+			<result name="error">/vue/erreurLogin.jsp</result>
+
+		</action>
+		
+		<action name="showFaq" >
+			<result >/vue/faq.jsp</result>
+			
+
+		</action>
+
+		<action name="getResBooks" class="action.seekbook.Search"
+			method="showSearch">
+			<result name="success">/vue/resultat_recherche_Livre.jsp</result>
+			<result name="error">/vue/erreurLogin.jsp </result>
+
+		</action>
+		<action name="searchPaginateBook" class="action.seekbook.Search"
+			method="searchPaginateBook">
+			<result name="success">/ajax/pageResultBook.jsp</result>
+			<result name="error">/vue/erreurLogin.jsp </result>
+
+		</action>
+
+
+		<action name="showBooks_by_Category" class="action.seekbook.CategorySeek"
+			method="showBooks_by_Category">
+			<result name="success">/vue/bookListPage_by_category.jsp</result>
+
+		</action>
+		<action name="categoryPaginateBook" class="action.seekbook.CategorySeek"
+			method="showCategoryPaginateBook">
+			<result name="success">/ajax/pageResultBook.jsp</result>
+			<result name="error">/vue/erreurLogin.jsp </result>
+
+		</action>
+		<action name="searchPaginateAuthor" class="action.seekbook.Search"
+			method="searchPaginateAuthor">
+			<result name="success">/ajax/pageResultAuthor.jsp</result>
+			<result name="error">/vue/erreurLogin.jsp </result>
+
+		</action>
+		<action name="showMyBook" class="action.consult_book.ConsultBook"
+			method="showMyBook">
+			<result name="success">/vue/showMyBook.jsp</result>
+			
+			<result name="illegal_access" type="redirectAction" >
+			
+			 
+			 <param name="actionName">showBook</param>
+			<param name="bookId">${bookId}</param>
+			
+			</result>
+	
+			
+			<result name="error">/vue/showMyBook.jsp</result>
+
+		</action>
+
+		<action name="showBook" class="action.consult_book.ConsultBook"
+			method="showBook">
+			<result name="success">/vue/showBook.jsp</result>
+			<result name="success_demo">/vue/showBook_demo.jsp</result>
+			<result name="error">/vue/showBook.jsp</result>
+
+		</action>
+		
+				
+		<action name="searchPaginateGroup" class="action.seekbook.Search"
+			method="searchPaginateGroup">
+			<result name="success">/ajax/pageResultGroup.jsp</result>
+			<result name="error">/vue/erreurLogin.jsp </result>
+
+		</action>
+
+			<action name="loadMessagebook" class="action.consult_book.ConsultBook"
+			method="loadMessage_book">
+			<result name="success">/ajax/showMessage_book.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+				<action name="listPaginateAuthorBooks" class="action.consult_book.ConsultBook"
+			method="listPaginateAuthorBooks">
+			<result name="success">/ajax/pageResultBook.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		<action name="show_AuthorBooks_full" class="action.consult_book.ConsultBook"
+			method="show_AuthorBooks_full">
+			<result name="success">/vue/list_author_books.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+	
+			<action name="show_referee" class="action.register.Register"
+			method="show_referee">
+			<result name="success">/vue/refer.jsp</result>
+			<result name="input" type="redirectAction">main</result>
+
+		</action>
+	
+		
+		<action name="send_mail" class="action.mymail.Manage_mail"
+			method="send_mail">
+			<result type="stream"/>
+
+		</action>
+		
+				
+	
+			<action name="sendreferMail" class="action.register.Register"
+			method="sendreferMail">
+			<result name="success">/vue/referesendConfirm.jsp</result>
+			<result name="input" type="redirectAction">/vue/referesendConfirm.jsp</result>
+			<result name="error" type="redirectAction">/vue/referesendConfirm.jsp</result>
+		</action>
+		
+			<action name="sendLostPassword" class="action.register.Register"
+			method="sendLostPassword">
+			<result name="success">/vue/sendPassConfirm.jsp</result>
+			<result name="input" type="redirectAction">/vue/sendPassConfirm.jsp</result>
+			<result name="error" type="redirectAction">/vue/sendPassConfirm.jsp</result>
+		</action>
+		
+				<action name="confirmRegister" class="action.register.Register"
+			method="confirmRegister">
+			<result name="success">/vue/registerConfirm2.jsp</result>
+			<result name="input" type="redirectAction">/vue/registerConfirm2.jsp</result>
+			<result name="error" type="redirectAction">/vue/registerConfirm2.jsp</result>
+		</action>
+		
+		<action name="showFAQ" >
+			
+			<result >/vue/faq.jsp</result>
+		
+
+		</action>
+		
+		
+		 
+      <action name="showInvoice" class="action.payment.BuyEbook" method="showInvoice">
+
+      <result  name="success">/vue/invoice.jsp</result>
+          <result  name="error">/vue/errorAccess.jsp</result>
+      </action>
+      
+      	<action name="processPayment" class="action.payment.BuyEbook" method="processPayment">
+
+      <result  name="success">/vue/message_file/confirmOrderSuccess.jsp</result>
+          <result  name="error_pay">/vue/message_file/orderPayError.jsp</result>
+      </action>
+      
+      
+    <action name="downloadBookDemo" class="action.consult_book.ConsultBook"
+			method="downloadBookDemo">
+		<result name="success" type="stream">
+ <param name="contentType">${mime}</param>
+ <param name="inputName">myFile</param>
+ 	<param name="contentDisposition">filename="${filename}"</param>
+
+ <param name="bufferSize">1024</param>
+</result>
+
+<result name="error" >/vue/errorDownload.jsp </result>
+		</action>
+      
+		
+
+	</package>
+
+	<package name="member_actions" namespace="/" extends="hibernate-default">
+
+		<interceptors>
+			<interceptor name="login_check_interceptor"
+				class="interceptor.Session_login_check_interceptor" />
+			<interceptor name="BookOfTheDay" class="interceptor.BookOfTheDay_interceptor" />
+			<interceptor name="New_message_received" class="interceptor.New_message_received_interceptor" />
+			
+			<interceptor-stack name="stack_member_check">
+				<interceptor-ref name="defaultStackHibernate" />
+				
+				<interceptor-ref name="BookOfTheDay" />
+				<interceptor-ref name="login_check_interceptor" />
+				<interceptor-ref name="New_message_received" />
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="stack_member_check" />
+
+		<global-results>
+		<result name="error_access_member">/vue/login.jsp</result>
+		<result name="illegal_access" >/vue/errorAccess.jsp</result>
+		</global-results>	
+		
+		<action name="show_author" class="action.consult_author.ConsultAuthor"
+			method="show_author_home">
+			<result name="success">/vue/show_author.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		<action name="showAddMyEbook" class="action.myebook.MyEbook"
+			method="showAddEbook">
+			<result name="success">/vue/addNewEbook.jsp</result>
+
+		</action>
+		
+		<!-- need to find where it is -->
+		
+				<action name="showEditMyEbook" class="action.myebook.MyEbook"
+			method="showEditBook">
+			<result name="success">/vue/edit_book.jsp</result>
+			<result name="illegal_access" type="redirectAction" >
+			
+			 
+			 <param name="actionName">showBook</param>
+			<param name="bookId">${bookId}</param>
+			
+			</result>
+
+		</action>
+		
+		<action name="addbook" class="action.myebook.MyEbook" method="addEbook">
+			<result name="success">/vue/cropImage.jsp</result>
+			<result name="input">/vue/addNewEbook.jsp</result>
+			<result name="no_img" type="redirectAction">
+			 
+			 <param name="actionName">showMyBook</param>
+			<param name="bookId">${bookId}</param>
+			
+			</result>
+				<result name="sell_ok" type="redirectAction">
+			 
+			 <param name="actionName">info_sell_form</param>
+			<param name="bookId">${bookId}</param>
+			
+			</result>
+	
+
+
+		</action>
+
+		<action name="showEditBook" class="action.myebook.MyEbook"
+			method="showEditBook">
+			<result name="success">/vue/edit_book.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+		
+		<result name="illegal_access" type="redirectAction" >
+			
+			 
+			 <param name="actionName">showBook</param>
+			<param name="bookId">${bookId}</param>
+			
+			</result>
+		
+
+		</action>
+
+		<action name="showEditUploadBook" class="action.myebook.MyEbook"
+			method="showEditUploadBook">
+			<result name="success">/vue/edit_upload_book.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="illegal_access" >/vue/errorAccess.jsp</result>
+
+		</action>
+		
+		<action name="validModifBook" class="action.myebook.MyEbook"
+			method="validModifBook">
+			<result name="success" type="redirectAction">
+			 
+			 <param name="actionName">showMyBook</param>
+			<param name="bookId">${bookId}</param>
+			</result>
+			<result name="input">/vue/edit_book.jsp</result>
+
+
+		</action>
+		
+		<action name="validModifUploadBook" class="action.myebook.MyEbook" method="validUploadModifBook">
+			<result name="success">/vue/cropImage.jsp</result>
+			<result name="input">/vue/edit_upload_book.jsp</result>
+				<result name="success_noimg" type="redirectAction">
+			 
+			 <param name="actionName">showMyBook</param>
+			<param name="bookId">${bookId}</param>
+			</result>
+
+
+		</action>
+
+		<action name="supprBook" class="action.myebook.MyEbook" method="supprBook">
+			<result name="success">/vue/home.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+
+
+		</action>
+
+		<action name="cropImage" class="action.myebook.MyEbook" method="cropImage">
+			<result name="success" type="redirectAction">
+			 <param name="actionName">showMyBook</param>
+			<param name="bookId">${bookId}</param>
+			
+			</result>
+			<result name="input" type="redirectAction">
+			<param name="actionName">showEditUploadBook</param>
+			<param name="bookId">${bookId}</param>
+	
+			</result>
+
+			<result name="sell_ok" type="redirectAction">
+			 
+			 <param name="actionName">info_sell_form</param>
+			<param name="bookId">${bookId}</param>
+			
+			</result>
+
+
+		</action>
+
+		<action name="addMessage" class="action.consult_author.ConsultAuthor"
+			method="addMessage">
+			<result name="success">/ajax/addMessage_member.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+			<action name="addMessage_auhor" class="action.consult_author.ConsultAuthor"
+			method="addMessage_auhor">
+			<result name="success">/ajax/addMessage_member.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+
+		<action name="addResponseMessage" class="action.consult_author.ConsultAuthor"
+			method="addResponseMessage">
+			<result name="success">/ajax/addResponse_message_member.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		<action name="loadMessageGroup" class="action.consult_group.ConsultGroups"
+			method="loadMessage_group">
+			<result name="success">/ajax/showMessage_group.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+
+
+		<action name="loadMessage_home" class="action.consult_author.ConsultAuthor"
+			method="loadMessage_home">
+			<result name="success">/ajax/showMessage_member.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		
+		
+		<action name="loadMessage_member" class="action.consult_author.ConsultAuthor"
+			method="loadMessage_member">
+			<result name="success">/ajax/showMessage_member.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+
+		<action name="show_home" class="action.consult_author.ConsultAuthor"
+			method="show_home">
+			<result name="success">/vue/home.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+
+		<action name="show_profil" class="action.manage_profile.MyProfile"
+			method="show_profil">
+			<result name="success">/vue/manage_profile.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+
+		<action name="updateUser" class="action.manage_profile.MyProfile"
+			method="updateUser">
+			<result name="success">/vue/cropImageAvatar.jsp</result>
+			<result name="success_no_img" type="redirectAction"> 
+			<param name="actionName">show_home</param>
+		
+			
+			</result>
+			<result name="input">/vue/manage_profile.jsp</result>
+			<result name="error">/vue/manage_profile.jsp</result>
+
+		</action>
+
+		<action name="uploadFileAjax" class="action.manage_profile.MyProfile"
+			method="uploadFileAjax">
+			<result type="stream" />
+
+
+		</action>
+
+		<action name="addMessage_book" class="action.consult_book.ConsultBook"
+			method="addMessage_book">
+			<result name="success">/ajax/addMessage_book.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+
+		<action name="addResponseMessage_book" class="action.consult_author.ConsultAuthor"
+			method="addResponseMessage">
+			<result name="success">/ajax/addResponse_message_member.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+
+
+	
+
+		<action name="addMessage_group" class="action.consult_group.ConsultGroups"
+			method="addMessage_group">
+			<result name="success">/ajax/addMessage_group.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+
+		<action name="show_my_groups" class="action.mygroups.Manage_groups"
+			method="show_my_groups">
+			<result name="success">/vue/manage_groups.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		
+			<action name="show_edit_group" class="action.mygroups.Manage_groups"
+			method="show_edit_group">
+			<result name="success">/vue/edit_group.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		<action name="update_group" class="action.mygroups.Manage_groups"
+			method="update_group">
+			<result name="success" type="redirectAction">
+			  <param name="actionName">showAdminGroup</param>
+			<param name="groupId">${groupId}</param>
+				
+			</result>
+			<result name="input">/vue/edit_group.jsp</result>
+			<result name="error">/vue/edit_group.jsp</result>
+
+		</action>
+		
+		
+		
+		<action name="delete_group" class="action.mygroups.Manage_groups"
+			method="delete_group">
+			<result name="success">/vue/manage_groups.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+
+
+		<action name="showNewGroup" class="action.mygroups.Manage_groups"
+			method="show_new_group">
+			<result name="success">vue/addNewGroup.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+
+		<action name="insert_group" class="action.mygroups.Manage_groups"
+			method="save_new_group">
+			<result name="success" type="redirectAction">
+			  <param name="actionName">showAdminGroup</param>
+			<param name="groupId">${g.idGroup}</param>
+				
+			</result>
+			<result name="input">/vue/addNewGroup.jsp</result>
+			<result name="error">/vue/addNewGroup.jsp</result>
+		</action>
+
+		<action name="showOwnGroup" class="action.consult_group.ConsultGroups"
+			method="showGroup">
+			<result name="success">/vue/group.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+		</action>
+
+		<action name="showGroup" class="action.consult_group.ConsultGroups"
+			method="showGroup">
+			<result name="success">/vue/group.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+			<result name="owner" type="redirectAction">
+			  <param name="actionName">showAdminGroup</param>
+			<param name="groupId">${groupId}</param>
+				
+			</result>
+			
+			
+		</action>
+
+		<action name="showAdminGroup" class="action.mygroups.Manage_groups"
+			method="show_admin_group">
+			<result name="success">/vue/admin_group.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+
+		</action>
+
+		<action name="rateBookAjax" class="action.consult_book.ConsultBook"
+			method="rate_book_ajax">
+			<result type="stream" />
+		</action>
+		
+		<action name="showRequest" class="action.consult_group.ConsultGroups"
+			method="show_request">
+			<result name="success">/vue/show_request.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+		</action>
+		
+		<action name="newRequest" class="action.consult_group.ConsultGroups"
+			method="new_request">
+			<result name="success">/vue/new_request.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+		</action>
+		
+		<action name="saveRequest" class="action.consult_group.ConsultGroups"
+			method="save_request">
+			<result name="success">/vue/new_request.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+		</action>
+		
+			<action name="addMessageReqAjax" class="action.consult_group.ConsultGroups"
+			method="add_message_req_ajax">
+			<result type="stream" />
+		</action>
+		
+		<action name="show_group_home" class="action.consult_group.ConsultGroups"
+			method="show_home">
+			<result name="success">/vue/group_home.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		<action name="logout" class="action.login.Login"
+			method="logout">
+			<result type="redirectAction">
+			 <param name="actionName">main</param>
+			 </result>
+		
+
+		</action>
+		
+			<action name="sendAbuse" class="action.login.Login"
+			method="sendAbuse">
+			<result type="stream" />
+			
+		</action>
+		
+		
+		<action name="listPaginateFriends" class="action.consult_author.ConsultAuthor"
+			method="listPaginateFriends">
+			<result name="success">/ajax/pageResultAuthorCross.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		<action name="showListFriends" class="action.consult_author.ConsultAuthor"
+			method="show_myFriends_full">
+			<result name="success">/vue/list_friends.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		
+			
+			
+				<action name="listPaginateGroupMember" class="action.consult_group.ConsultGroups"
+			method="listPaginategroupMembers">
+			<result name="success">/ajax/pageResultAuthor.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		<action name="showListGroupMember" class="action.consult_group.ConsultGroups"
+			method="show_groupMembers_full">
+			<result name="success">/vue/list_GroupMember.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		
+					   
+		<action name="listPaginateFavouriteAuthors" class="action.consult_author.ConsultAuthor"
+			method="listPaginateFavouriteAuthors">
+			<result name="success">/ajax/pageResultAuthorCross.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		<action name="showListFavouriteAuthors" class="action.consult_author.ConsultAuthor"
+			method="show_myFavouriteAuthor_full">
+			<result name="success">/vue/list_favourite_authors.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		<action name="listPaginateWatchers" class="action.consult_author.ConsultAuthor"
+			method="listPaginateWatchers">
+			<result name="success">/ajax/pageResultAuthorCross.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		<action name="showListWatchers" class="action.consult_author.ConsultAuthor"
+			method="show_myWatchers_full">
+			<result name="success">/vue/list_watchers.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		
+		<action name="listPaginateMyBooks" class="action.myebook.MyEbook"
+			method="listPaginateMyBooks">
+			<result name="success">/ajax/pageResultBookAdminCross.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+			<action name="listPaginateMyFollowBooks" class="action.myebook.MyEbook"
+			method="listPaginateMyFollowBooks">
+			<result name="success">/ajax/pageResultBookCross.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		
+		
+		<action name="show_MyBooks_full" class="action.myebook.MyEbook"
+			method="show_MyBooks_full">
+			<result name="success">/vue/list_my_books.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		<action name="show_MyFollowBooks_full" class="action.myebook.MyEbook"
+			method="show_MyFollowBooks_full">
+			<result name="success">/vue/list_my_follow_books.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		
+		<action name="listPaginateGroupBooks" class="action.consult_group.ConsultGroups"
+			method="listPaginateGroupBooks">
+			<result name="success">/ajax/pageResultBook.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		
+		
+		<action name="show_GroupBooks_full" class="action.consult_group.ConsultGroups"
+			method="show_GroupBooks_full">
+			<result name="success">/vue/list_GroupBooks.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		<action name="listPaginateMyGroupBooks" class="action.consult_group.ConsultGroups"
+			method="listPaginateMyGroupBooks">
+			<result name="success">/ajax/pageResultBookCross.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		
+		
+		<action name="show_MyGroupBooks_full" class="action.consult_group.ConsultGroups"
+			method="show_MyGroupBooks_full">
+			<result name="success">/vue/list_MyGroupBooks.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		
+		
+		
+		<action name="delete_mybook_group" class="action.myebook.MyEbook"
+			method="delete_mybook_group">
+			<result name="success">/vue/list_my_follow_books.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+			<action name="delete_book_follow" class="action.myebook.MyEbook"
+			method="delete_book_follow">
+			<result name="success">/vue/list_my_follow_books.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+			<action name="delete_author_follow" class="action.consult_author.ConsultAuthor"
+			method="delete_author_follow">
+			<result name="success">/vue/list_my_follow_books.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+			<action name="delete_joined_group" class="action.mygroups.Manage_groups"
+			method="delete_joined_group">
+			<result name="success">/vue/list_my_follow_books.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		
+		<action name="delete_Mybook" class="action.myebook.MyEbook"
+			method="delete_Mybook">
+			<result name="success">/vue/list_my_follow_books.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		
+		<action name="listPaginateMyGroups" class="action.mygroups.Manage_groups"
+			method="listPaginateMyGroups">
+			<result name="success">/ajax/pageResultGroupCross.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		<action name="listPaginateMyOwnGroups" class="action.mygroups.Manage_groups"
+			method="listPaginateMyOwnGroups">
+			<result name="success">/ajax/pageResultGroupAdminCross.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		<action name="show_friend_request" class="action.manage_friends.MyFriends"
+			method="show_friend_request">
+			<result name="success">/vue/list_friend_request.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+			<action name="delete_friends" class="action.manage_friends.MyFriends"
+			method="delete_friends">
+		<result type="stream" />
+
+		</action>
+		
+		<action name="show_MyJoinedGroup" class="action.mygroups.Manage_groups"
+			method="show_MyJoinedGroup">
+			<result name="success">/vue/list_my_groups.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		<action name="show_MyOwnGroup" class="action.mygroups.Manage_groups"
+			method="show_MyOwnGroup">
+			<result name="success">/vue/list_my_own_groups.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		
+			<action name="showAllGroups" class="action.seekbook.Search"
+			method="showAllGroups">
+			<result name="success">/vue/list_all_groups.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		
+		<action name="listPaginateAllGroups" class="action.seekbook.Search"
+			method="listAllGroups">
+			<result name="success">/ajax/pageResultGroup.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		
+		<action name="show_mail" class="action.mymail.Manage_mail"
+			method="show_MyEmails">
+			<result name="success">/vue/show_mail.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+				<action name="showWriteMailAuthorForm" class="action.mymail.Manage_mail"
+			method="showWriteMailAuthorForm">
+			<result name="success">/vue/showMailFormAuthor.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+			<action name="deleteMail" class="action.mymail.Manage_mail"
+			method="deleteMail">
+			<result name="success">/vue/show_mail.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+	
+		
+			<action name="listPaginateMyMails" class="action.mymail.Manage_mail"
+			method="listPaginateMyMails">
+			<result name="success">/ajax/showMessage_mail_sent.jsp</result>
+			<result name="mail_next">/ajax/showMessage_mail_sent_ajax.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		<action name="listPaginateInbox" class="action.mymail.Manage_mail"
+			method="listPaginateInbox">
+			<result name="success">/ajax/showMessage_mail.jsp</result>
+			<result name="mail_next">/ajax/showMessage_mail_ajax.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		<action name="ajax_showWriteMail" class="action.mymail.Manage_mail"
+			method="showWriteMail">
+			<result name="success">/ajax/showWriteMail.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		<action name="ajax_showDetailMail" class="action.mymail.Manage_mail"
+			method="showDetailMail">
+			<result name="success">/ajax/showDetailMail.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		<action name="addRespMessageEmailAjax" class="action.mymail.Manage_mail"
+			method="addRespMessageEmailAjax">
+			<result type="stream" />
+
+		</action>
+		
+		<action name="sendFriendRequest" class="action.consult_author.ConsultAuthor"
+			method="sendFriendRequest">
+			<result type="stream" />
+
+		</action>
+		
+			<action name="sendFollowRequest" class="action.consult_author.ConsultAuthor"
+			method="addFollow">
+			<result type="stream" />
+
+		</action>
+		
+			<action name="addFollowGroup" class="action.consult_group.ConsultGroups"
+			method="addFollowGroup">
+			<result type="stream" />
+
+		</action>
+		
+		
+		
+			<action name="confirm_friend" class="action.manage_friends.MyFriends"
+			method="confirm_friend">
+			<result type="stream" />
+
+		</action>
+		
+		<action name="cropImageAvatar" class="action.manage_profile.MyProfile" method="cropImage">
+			<result name="success" type="redirectAction">
+			 <param name="actionName">show_home</param>
+		
+			
+			</result>
+			<result name="input" type="redirectAction">
+			<param name="actionName">show_profil</param>
+			
+	
+			</result>
+
+
+		</action>
+		
+		
+		
+			<action name="add_book_group" class="action.consult_group.ConsultGroups"
+			method="add_book_group">
+			<result type="stream" />
+
+		</action>
+		
+			<action name="addFavouriteBook" class="action.consult_book.ConsultBook"
+			method="addFavouriteBook">
+			<result type="stream" />
+
+		</action>
+		
+		<action name="delete_mess_book" class="action.consult_book.ConsultBook"
+			method="delete_message_Book">
+			<result name="success">/vue/show_mail.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+			<action name="delete_mess_group" class="action.consult_group.ConsultGroups"
+			method="delete_message_Group">
+			<result name="success">/vue/show_mail.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		<action name="delete_mess_member" class="action.consult_author.ConsultAuthor"
+			method="delete_message_member">
+			<result name="success">/vue/show_mail.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		<action name="showMailForm" class="action.mymail.Manage_mail"
+			method="showMailForm">
+			<result name="success">/ajax/showMailForm.jsp</result>
+			<result name="input">/vue/home.jsp</result>
+			<result name="error">/vue/home.jsp</result>
+
+		</action>
+		
+		
+				<action name="task" class="action.mymail.Manage_mail"
+			method="task">
+			<result name="success">index.jsp</result>
+			<result name="input">index.jsp</result>
+			<result name="error">index.jsp</result>
+
+		</action>
+	
+	<action name="info_sell_form" class="action.myebook.MyEbook" method="show_info_sell_form">
+
+			<result name="success">/vue/show_selling_form_complementary.jsp</result>
+	<result name="illegal_access" >/vue/errorAccess.jsp</result>
+			
+		
+	
+	</action>
+		
+		<action name="valid_info_sell" class="action.myebook.MyEbook" method="valid_info_sell">
+			
+			<interceptor-ref name="stack_member_check">
+    			<param name="fileUpload.maximumSize">5242880</param>
+			</interceptor-ref>
+			
+			<result name="input">/vue/show_selling_form_complementary.jsp</result>
+			<result name="error">/vue/show_selling_form_complementary.jsp</result>
+			<result name="confirm_admin">/vue/check_info_sales.jsp</result>
+			
+			<result name="success" type="redirectAction">
+			 
+			 <param name="actionName">showMyBook</param>
+			<param name="bookId">${bookId}</param>
+			
+			</result>
+		</action>
+		
+		<action name="showBuyBook" class="action.payment.BuyEbook" method="showListBuyEbook" >
+			<result >/vue/showBuyBook.jsp</result>
+
+		</action>
+		
+		
+		
+		<action name="showsales"   class="action.payment.SellEbook" method="showSales" >
+			<result >/vue/show_sales.jsp</result>
+
+		</action>
+		
+		<action name="showPeriodSales"  class="action.payment.SellEbook" method="showPeriodSales" >
+			<result >/ajax/show_sales_period_table.jsp</result>
+
+		</action>
+		
+		<!--
+		
+		<action name="showComplementarySellBook" >
+			<result >/vue/show_selling_form_complementary.jsp</result>
+
+		</action>
+		
+			-->
+			<action name="addNewAdress" >
+			<result >/vue/addNewAdress.jsp</result>
+
+		</action>
+		
+		<action name="downloadBook" class="action.consult_book.ConsultBook"
+			method="downloadBook">
+		<result name="success" type="stream">
+ <param name="contentType">${mime}</param>
+ <param name="inputName">myFile</param>
+ 	<param name="contentDisposition">filename="${filename}"</param>
+
+ <param name="bufferSize">1024</param>
+</result>
+
+<result name="error" >/vue/errorDownload.jsp </result>
+		</action>
+		
+		
+
+		
+		
+<!--		 <action name="test" class="" >-->
+ <action name="buyBook" class="action.payment.BuyEbook" method="showPayment">
+
+      <result  type="redirect">
+      
+         <param name="location">../cgi-bin/modulev3.cgi</param>
+<!--         <param name="PBX_TOTAL">${price}</param>-->
+		 <param name="parse">true</param>
+
+		 <param name="PBX_TOTAL">${price}</param>
+         <param name="PBX_MODE">%{@constant.Bank@PBX_MODE}</param>
+         <param name="PBX_SITE">%{@constant.Bank@PBX_SITE}</param>
+         <param name="PBX_RANG">%{@constant.Bank@PBX_RANG}</param>
+         <param name="PBX_DEVISE">%{@constant.Bank@PBX_DEVISE}</param>
+         <param name="PBX_CMD">${refOrder}</param>
+         <param name="PBX_PORTEUR">${email}</param>
+         <param name="PBX_IDENTIFIANT">%{@constant.Bank@PBX_IDENTIFIANT}</param>
+         <param name="PBX_RETOUR">%{@constant.Bank@PBX_RETOUR}</param>
+         <param name="PBX_EFFECTUE">${urlPath}processPayment</param>
+         <param name="PBX_REFUSE">${urlPath}refusedOrder</param>
+         <param name="PBX_ANNULE">${urlPath}cancelOrder</param>
+
+         
+      </result>
+      </action>
+		
+	
+      
+         
+		
+		<action name="cancelOrder" class="action.payment.BuyEbook" method="cancelOrder">
+
+      <result  name="success">/vue/message_file/orderCancel.jsp</result>
+          <result  name="error_pay">/vue/message_file/orderPayError.jsp</result>
+      </action>
+      
+      
+      		<action name="refusedOrder" class="action.payment.BuyEbook" method="refusedOrder">
+
+      <result  name="success">/vue/message_file/orderPayRefused.jsp</result>
+          <result  name="error_pay">/vue/message_file/orderPayError.jsp</result>
+      </action>
+     
+     
+     
+<action name="downloadBuyBook" class="action.payment.BuyEbook"
+			method="downloadBuyBook">
+		<result name="success" type="stream">
+ <param name="contentType">${mime}</param>
+ <param name="inputName">myFile</param>
+ 	<param name="contentDisposition">filename="${filename}"</param>
+
+ <param name="bufferSize">1024</param>
+</result>
+
+<result name="error" >/vue/errorDownload.jsp </result>
+		</action>
+     
+  <action name="valide" class="action.myebook.MyEbook" method="valide">
+			
+	
+			
+			<result name="success" type="redirectAction">
+			 
+			 <param name="actionName">showMyBook</param>
+			<param name="bookId">${bookId}</param>
+			
+			</result>
+		</action>   
+		
+		
+	</package>
+	<!--
+
+		<package name="ajaxfileupload" namespace="/"
+		extends="ajaxfileupload-default"> <action name="uploadAjax"
+		class="action.manage_profile.ImageUpload" method="test">
+		<interceptor-ref name="fileUploadStack" /> <result name="success"
+		type="httpheader"> <param name="status">200</param> </result>
+		</action> </package>
+	-->
+</struts>
+

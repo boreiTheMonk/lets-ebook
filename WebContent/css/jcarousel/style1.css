@@ -1,0 +1,80 @@
+/************************************************
+	      JCAROUSEL LITE		
+************************************************/
+#list {
+	height:103px;
+	width:576px;
+	padding:10px;
+	margin:0px auto;
+}
+.slider {
+	float:left;
+	left: -5000px;
+	position:relative;
+	visibility:hidden;
+}
+.slider ul {
+	height:100px;
+	width:500px;
+}
+.slider ul li {
+	padding:0 15px;
+}
+.slider ul li img {
+	cursor:pointer;
+	width:56px;
+	height: 77px;
+	border: 1px solid #a3a3a3;
+}
+.slider ul li p {
+	text-align:center;
+	margin-bottom: 0px;
+}
+.prev {
+	cursor:pointer;
+	float:left;
+	padding-top:30px;
+}
+.next {
+	cursor:pointer;
+	float:right;
+	padding-top:30px;
+}
+/************************************************
+	      CAPTIFY CAPTION		
+************************************************/
+.caption-top, .caption-bottom {
+	background: #000000;
+	color: #ffffff;
+	cursor:default;
+	padding:2px;
+	font-size:11px;
+	text-align:center;
+}
+.caption-top {
+	border-width:0px;
+}
+.caption-bottom {
+	border-width:0px;
+}
+.caption a, .caption a {
+	background:#000;
+	border:none;
+	text-decoration:none;
+	padding:2px;
+}
+.caption a:hover, .caption a:hover {
+	background:#202020;
+}
+/*
+-------------------------------------------------------------- 
+VERTICAL SCROLL TAB SMALL STYLES 
+-------------------------------------------------------------- 
+*/
+
+.vertical-scroll-cover_small {
+	float: left;
+	width: 388px;
+	height:160px;
+	border: 1px solid #e2d6c9;
+}

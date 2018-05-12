@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 juin 2010 01:06:26 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="model.persistance.OrderBook" table="order_book" catalog="ebooksite">
+        <id name="idOrder" type="java.lang.Integer">
+            <column name="ID_ORDER" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="book" class="model.persistance.Book" fetch="select">
+            <column name="ID_BOOK" not-null="true" />
+        </many-to-one>
+        <many-to-one name="orderCustomer" class="model.persistance.OrderCustomer" fetch="select">
+            <column name="ID_ORDER_CUSTOMER" />
+        </many-to-one>
+        <property name="price" type="java.lang.Double">
+            <column name="PRICE" precision="13" />
+        </property>
+        <property name="isTreated" type="java.lang.Boolean">
+            <column name="IS_TREATED" />
+        </property>
+        <property name="linkFileOrder" type="string">
+            <column name="LINK_FILE_ORDER" length="254" />
+        </property>
+        <property name="name" type="string">
+            <column name="NAME" length="100" />
+        </property>
+        <property name="label" type="string">
+            <column name="LABEL" length="100" />
+        </property>
+        
+        <property name="linkImageOrder" type="string">
+            <column name="LINK_IMAGE_ORDER" length="254" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

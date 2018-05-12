@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 juin 2010 01:06:26 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="model.persistance.Category" table="category" catalog="ebooksite">
+        <id name="idCategory" type="java.lang.Integer">
+            <column name="ID_CATEGORY" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="category" class="model.persistance.Category" fetch="select">
+            <column name="ID_CATEGORY_PARENT" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="NAME" length="100" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="65535" />
+        </property>
+        <set name="categories" inverse="true" lazy="true" table="category" fetch="select" order-by="ID_CATEGORY asc"> 
+            <key>
+                <column name="ID_CATEGORY_PARENT" />
+            </key>
+            <one-to-many class="model.persistance.Category" />
+        </set>
+        <set name="books" inverse="true" lazy="true" table="book" fetch="select">
+            <key>
+                <column name="ID_CATEGORY" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.Book" />
+        </set>
+    </class>
+</hibernate-mapping>

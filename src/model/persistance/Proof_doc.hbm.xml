@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 juin 2010 01:06:26 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="model.persistance.Proof_doc" table="proof_doc" catalog="ebooksite">
+        <id name="idProofDoc" type="java.lang.Long">
+            <column name="ID_PROOF_DOC" />
+            <generator class="identity" />
+        </id>
+        <property name="url_doc" type="string">
+            <column name="URL_DOC" length="254" />
+        </property>
+         <property name="name" type="string">
+            <column name="NAME" length="254" />
+        </property>
+        <property name="publishingDate" type="timestamp">
+            <column name="PUBLISHING_DATE" length="19" />
+        </property>
+        <many-to-one name="myBook" class="model.persistance.Book" fetch="select">
+            <column name="ID_BOOK" not-null="true" />
+        </many-to-one>
+        
+
+       
+    </class>
+</hibernate-mapping>

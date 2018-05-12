@@ -1,0 +1,101 @@
+.jScrollPaneContainer {
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+}
+.jScrollPaneTrack222 {
+	position: absolute;
+	cursor: pointer;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background: #d9dadb;
+}
+.jScrollIntervalTrack {
+	position: absolute;
+}
+.jScrollPaneDrag {
+	position: absolute;
+	background:#00a0c6 url(../../images/osx_drag_middle.gif) no-repeat center;
+	cursor: pointer;
+	overflow: hidden;
+}
+.jScrollPaneDragLeft {
+   position: absolute;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+}
+.jScrollPaneDragRight {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	overflow: hidden;
+}
+a.jScrollArrowLeft {
+	display: block;
+	position: absolute;
+	z-index: 1;
+	bottom: 0;
+	left: 0;
+	text-indent: -2000px !important;
+	overflow: hidden;
+	/*background-color: #666;*/
+	height:15px;
+	width: 15px;
+	background: url(../../images/basic_arrow_left.gif) no-repeat 0 0;
+}
+a.jScrollArrowRight {
+	display: block;
+	position: absolute;
+	z-index: 1;
+	bottom: 0;
+	right: 0;
+	text-indent: -2000px !important;
+	overflow: hidden;
+	/*background-color: #666;*/
+height: 15px;
+	width: 15px;
+	background: url(../../images/basic_arrow_right.gif) no-repeat 0 0;
+}
+.holder-horizontal {
+	margin: 0;
+	display: block;
+	height:200px;/* TEMP */
+}
+.scroll-pane-horizontal {
+	width: 600px;
+	float: left;
+	padding: 0;
+}
+#hpane1 {
+	height: 180px;
+	width: 600px;
+	padding: 0;
+	display: block;
+	_overflow: hidden;
+}
+#hpane2 {
+	height: 180px;
+	width: 600px;
+	padding: 0;
+	display: block;
+	_overflow: hidden;
+}
+.ohX .jScrollPaneDrag {
+	background:#00a0c6 url(../../images/osx_drag_middle.gif) no-repeat center;
+}
+.ohX .jScrollPaneDragLeft {
+	background: url(../../images/osx_drag_left.gif) no-repeat;
+	height: 15px;
+	width:15px;
+}
+.ohX .jScrollPaneDragRight {
+	background: url(../../images/osx_drag_right.gif) no-repeat;
+	height: 15px;
+	width:15px;
+}
+.horizontal-scroller {
+width:700px;
+float:left;
+}

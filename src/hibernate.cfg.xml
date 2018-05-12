@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+    
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.max_statements">50</property>
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.timeout">1800</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ebooksite</property>
+        <property name="hibernate.connection.username">root</property>
+      <property name="hibernate.connection.password">root</property> 
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hbm2ddl.auto">update</property>
+        <property name="hibernate.show_sql">true</property>
+        <mapping resource="model/persistance/MessageRequest.hbm.xml" />
+        <mapping resource="model/persistance/TagBook.hbm.xml" />
+        <mapping resource="model/persistance/VersionBook.hbm.xml" />
+        <mapping resource="model/persistance/MessageGroup.hbm.xml" />
+        <mapping resource="model/persistance/VoteBook.hbm.xml" />
+        <mapping resource="model/persistance/Adress.hbm.xml" />
+        <mapping resource="model/persistance/OrderCustomer.hbm.xml" />
+        <mapping resource="model/persistance/LevelMember.hbm.xml" />
+        <mapping resource="model/persistance/Category.hbm.xml" />
+        <mapping resource="model/persistance/VoteMember.hbm.xml" />
+        <mapping resource="model/persistance/RequestFriend.hbm.xml" />
+        <mapping resource="model/persistance/ResponseMessageGroup.hbm.xml" />
+        <mapping resource="model/persistance/VoteRequest.hbm.xml" />
+        <mapping resource="model/persistance/MessageEmail.hbm.xml" />
+        <mapping resource="model/persistance/ResponseMessageBook.hbm.xml" />
+        <mapping resource="model/persistance/ClassMember.hbm.xml" />
+        <mapping resource="model/persistance/ThemeGroup.hbm.xml" />
+        <mapping resource="model/persistance/Job.hbm.xml" />
+        <mapping resource="model/persistance/Member.hbm.xml" />
+        <mapping resource="model/persistance/FavouriteBook.hbm.xml" />
+        <mapping resource="model/persistance/Theme.hbm.xml" />
+        <mapping resource="model/persistance/Abuse.hbm.xml" />
+        <mapping resource="model/persistance/Level.hbm.xml" />
+        <mapping resource="model/persistance/MessageMember.hbm.xml" />
+        <mapping resource="model/persistance/OrderBook.hbm.xml" />
+        <mapping resource="model/persistance/Request.hbm.xml" />
+        <mapping resource="model/persistance/Book.hbm.xml" />
+        <mapping resource="model/persistance/Proof_doc.hbm.xml" />
+        <mapping resource="model/persistance/MessageBook.hbm.xml" />
+        <mapping resource="model/persistance/FolderEmail.hbm.xml" />
+        <mapping resource="model/persistance/FavouriteAuthor.hbm.xml" />
+        <mapping resource="model/persistance/ResponseMessageMember.hbm.xml" />
+    </session-factory>
+</hibernate-configuration>

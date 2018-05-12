@@ -1,0 +1,29 @@
+/* 
+    Document   : base_member
+    Created on : 26 janv. 2010, 23:29:46
+    Author     : borei
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.divacueuil2 {
+	  margin-left: auto;
+         margin-right: auto;
+	border:solid;
+	border-width:1px;
+	
+	width:1000px;
+	text-align: left;
+
+}
+
+body{
+
+  margin: 0; /* pour éviter les marges */
+  text-align: center; /* pour corriger le bug de centrage IE */
+  }

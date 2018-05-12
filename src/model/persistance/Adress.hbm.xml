@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 juin 2010 01:06:26 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="model.persistance.Adress" table="adress" catalog="ebooksite">
+        <id name="idAdress" type="java.lang.Integer">
+            <column name="ID_ADRESS" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="member" class="model.persistance.Member" fetch="select">
+            <column name="ID_MEMBER" not-null="true" />
+        </many-to-one>
+        <property name="street" type="string">
+            <column name="STREET" length="100" />
+        </property>
+        <property name="town" type="string">
+            <column name="TOWN" length="50" />
+        </property>
+        <property name="zip" type="string">
+            <column name="ZIP" length="20" />
+        </property>
+        <property name="country" type="string">
+            <column name="COUNTRY" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>

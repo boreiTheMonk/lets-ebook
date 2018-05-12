@@ -1,0 +1,70 @@
+
+ #register_form
+{
+	width: 400px;
+}
+
+#register_formp
+{
+	margin: 2px 0;
+}
+
+/* Label */
+#register_form label
+{
+	background-color: #FFCC66;
+	display: block;
+	width: 39%;
+	float: left;
+	padding-right: 1%;
+	text-align: right;
+	letter-spacing: 1px;
+        
+}
+
+#register_form label:hover
+{
+	font-weight: bold;
+}
+
+#register_form .form_label_nostyle
+{
+	background: none;
+}
+
+        /* Input */
+#register_form input, #register_form select
+{
+	margin-left: 1%;
+	width: 58%;
+	border: #CCC 1px solid;
+}
+
+#register_form input:hover, #register_form select:hover, #register_form input:focus, #register_form select:focus
+{
+	border: #999 1px solid;
+	background-color: #DDEEFF;
+}
+
+#register_form .form_input_day_month
+{
+	width: 3%;
+}
+
+#register_form .form_input_year
+{
+	width: 6%;
+}
+
+/* button submit */
+#register_form input[type="submit"]
+{
+	border: #DDEEFF 1px solid;
+	width: 27%;
+}
+
+#register_form input[type="submit"]:hover
+{
+	background-color: #66CC33;
+	cursor: pointer;
+}

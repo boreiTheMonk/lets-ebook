@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 14, 2010 7:01:22 PM by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="modelcron.persistance.BookBk" table="book_bk" catalog="backup_ebooksite">
+        <id name="idBook" type="java.lang.Integer">
+            <column name="ID_BOOK" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="memberBk" class="modelcron.persistance.MemberBk" fetch="select">
+            <column name="ID_MEMBER" not-null="true" />
+        </many-to-one>
+        <property name="linkBook" type="string">
+            <column name="LINK_BOOK" length="200" />
+        </property>
+        <property name="keyBook" type="string">
+            <column name="KEY_BOOK" length="200" />
+        </property>
+        <property name="linkImage" type="string">
+            <column name="LINK_IMAGE" length="200" />
+        </property>
+        <property name="linkImageBig" type="string">
+            <column name="LINK_IMAGE_BIG" length="200" />
+        </property>
+        <property name="keyImage" type="string">
+            <column name="KEY_IMAGE" length="200" />
+        </property>
+        <property name="keyImageBig" type="string">
+            <column name="KEY_IMAGE_BIG" length="200" />
+        </property>
+        <property name="title" type="string">
+            <column name="TITLE" length="200" />
+        </property>
+        <property name="idRef" type="java.lang.Integer">
+            <column name="ID_REF" />
+        </property>
+        <property name="okL" type="java.lang.Boolean">
+            <column name="OK_L" />
+        </property>
+        <property name="okB" type="java.lang.Boolean">
+            <column name="OK_B" />
+        </property>
+        <property name="okImg" type="java.lang.Boolean">
+            <column name="OK_IMG" />
+        </property>
+    </class>
+</hibernate-mapping>

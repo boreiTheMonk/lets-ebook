@@ -1,0 +1,150 @@
+body{
+/*font-style: normal;
+font-family: Arial Narrow, Arial  , sans-serif;*/
+}
+
+div.categorie_hat {
+/*background-image:url(../images/backgr_menu.png);
+background-repeat:no-repeat;*/
+}
+div.menu_content {
+/*background-image:url(../images/categorie_content.png);*/
+background-image:url(../images/fond3.png);
+background-repeat:no-repeat; 
+
+width:142px;
+height:691px;
+z-index: 6;
+float: left;
+
+
+					
+}
+
+
+
+div.menu_content ul.menu span.titre {
+	placement du texte par-dessus l'image 
+/* color: red;
+font-size: 12px;
+font-weight: bold;
+font-family: Verdana;*/
+ 
+
+}
+
+
+
+/*div.categorie_content ul.menu {*/
+	/* placement du texte par-dessus l'image */
+/*    position: absolute;
+top: 1em;
+left: 1em;
+font-size: 1.5em;
+ margin: 1em;
+
+}
+*/
+
+
+div.categorie_tail {
+/*background-image:url(../images/categorie_tail.png);
+background-repeat:no-repeat;
+
+height:12px;*/
+}
+
+.entete_menu{
+background:url('../images/category.png ');
+width: 134px;
+height: 30px;
+margin-left:5px;
+}
+
+.categorie_menu{
+   /* border:solid;
+	border-color:#66F;
+ 
+	height:100%;*/
+
+/*	padding-left:20px;
+	padding-top:20px;*/
+	
+}
+.theme_menu { border: 1px solid #ffffff;  }
+
+#div_menu_category ul {
+	margin: 5px;
+	padding: 5px;
+	list-style: none;
+	width: 115px;
+	z-index: 5;
+	}
+
+#div_menu_category ul li {
+	position: relative;
+	z-index: 5;
+	}
+#div_menu_category li .ulone {
+	position: absolute;
+	left: 114px;
+	top: 0;
+	display: none;
+	z-index: 5;
+	
+	}
+	
+#div_menu_category li .ultwo {
+	position: absolute;
+	/* depends of the largest text size in ulone*/
+	left: 149px;
+	
+
+	
+	top: 0;
+	display: none;
+	z-index: 5;
+	
+	}
+	
+* html 	li .ultwo {left: 147px;	}
+	
+#div_menu_category ul li a {
+	display: block;
+	text-decoration: none;
+	color: #777;
+	background: transparent;
+	padding: 1px;
+	margin: 2px;
+	border-bottom: 0;
+	z-index: 5;
+	
+	}
+/* Fix IE. Hide from IE Mac \*/
+* html ul li { float: left; }
+* html ul li a { height: 1%; }
+/* End */
+#div_menu_category ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	width: 115px;
+	
+	}
+	#div_menu_category  li:hover .ulone { display: block; } 
+
+
+
+ /* div.menu_content a:link 
+  {ui-state-hover; }
+div.menu_content a:visited 
+  { color: #699; 
+  text-decoration: none; 
+  background-color: transparent }
+div.menu_content a:hover 
+  { ui-state-hover;
+   }
+div.menu_content a:active 
+  { ui-state-active;
+  }
+*/

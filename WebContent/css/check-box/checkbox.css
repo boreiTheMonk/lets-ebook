@@ -1,0 +1,17 @@
+.checkBox {
+	background-position: 0px 0px;
+}
+.checkBoxClear {
+	background-position: left -16px;
+}
+.checkBox, .checkBoxClear {
+	background-image: url(../../images/checkbox.gif);
+	background-repeat: no-repeat;
+	display: inline-block;
+	float: right;
+	width: 16px;
+	height: 16px;
+	margin: 0px;
+	cursor: hand;
+	padding-right: 8px;
+}

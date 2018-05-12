@@ -1,0 +1,240 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 juin 2010 01:06:26 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="model.persistance.Member" table="member" catalog="ebooksite">
+        <id name="idMember" type="java.lang.Integer">
+            <column name="ID_MEMBER" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="50" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="LAST_NAME" length="50" />
+        </property>
+        <property name="login" type="string">
+            <column name="LOGIN" length="50" />
+        </property>
+        <property name="password" type="string">
+            <column name="PASSWORD" length="50" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="65535" />
+        </property>
+        <property name="registrationDate" type="date">
+            <column name="REGISTRATION_DATE" length="10" />
+        </property>
+        <property name="avatarUrl" type="string">
+            <column name="AVATAR_URL" length="100" />
+        </property>
+        <property name="gender" type="java.lang.Character">
+            <column name="GENDER" length="1" />
+        </property>
+        <property name="birth" type="date">
+            <column name="BIRTH" length="10" />
+        </property>
+        <property name="email" type="string">
+            <column name="EMAIL" length="50" />
+        </property>
+        <property name="rating" type="java.lang.Double">
+            <column name="RATING" precision="13" />
+        </property>
+        <property name="secretQuestion" type="string">
+            <column name="SECRET_QUESTION" length="65535" />
+        </property>
+        <property name="responseQuestion" type="string">
+            <column name="RESPONSE_QUESTION" length="65535" />
+        </property>
+        <property name="avatarUrlBig" type="string">
+            <column name="AVATAR_URL_BIG" length="200" />
+        </property>
+        <property name="loginReferer" type="string">
+            <column name="LOGIN_REFERER" length="50" />
+        </property>
+         <property name="deleted" type="boolean">
+            <column name="DELETED" default="0" />
+        </property>
+         <property name="key_avatarUrlBig" type="string">
+            <column name="KEY_AVATAR_URL_BIG" length="200" />
+        </property>
+        <property name="key_avatarUrl" type="string">
+            <column name="KEY_AVATAR_URL" length="200" />
+        </property>
+        <set name="themeGroups" inverse="true" lazy="true" table="theme_group" fetch="select">
+            <key>
+                <column name="ID_MEMBER_ADMIN" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.ThemeGroup" />
+        </set>
+        <set name="books" inverse="false" lazy="true" table="follow_book" fetch="select">
+            <key>
+                <column name="ID_MEMBER" not-null="true" />
+            </key>
+            <many-to-many entity-name="model.persistance.Book">
+                <column name="ID_BOOK" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="messageRequests" inverse="true" lazy="true" table="message_request" fetch="select">
+            <key>
+                <column name="ID_MEMBER" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.MessageRequest" />
+        </set>
+        <set name="messageBooks" inverse="true" lazy="true" table="message_book" fetch="select">
+            <key>
+                <column name="ID_MEMBER" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.MessageBook" />
+        </set>
+        <set name="themeGroups_1" inverse="false" lazy="true" table="register" fetch="select">
+            <key>
+                <column name="ID_MEMBER" not-null="true" />
+            </key>
+            <many-to-many entity-name="model.persistance.ThemeGroup">
+                <column name="ID_GROUP" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="voteMembers" inverse="true" lazy="true" table="vote_member" fetch="select">
+            <key>
+                <column name="ID_MEMBER" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.VoteMember" />
+        </set>
+        <set name="messageGroups" inverse="true" lazy="true" table="message_group" fetch="select">
+            <key>
+                <column name="ID_MEMBER" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.MessageGroup" />
+        </set>
+        <set name="requests" inverse="true" lazy="true" table="request" fetch="select">
+            <key>
+                <column name="ID_MEMBER" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.Request" />
+        </set>
+        <set name="books_1" inverse="true" lazy="true" table="book" fetch="select">
+            <key>
+                <column name="ID_MEMBER" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.Book" />
+        </set>
+        <set name="responseMessageGroups" inverse="true" lazy="true" table="response_message_group" fetch="select">
+            <key>
+                <column name="ID_MEMBER" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.ResponseMessageGroup" />
+        </set>
+        <set name="messageEmailsForIdMemberSender" inverse="true" lazy="true" table="message_email" fetch="select">
+            <key>
+                <column name="ID_MEMBER_SENDER" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.MessageEmail" />
+        </set>
+        <set name="messageEmailsForIdMember" inverse="true" lazy="true" table="message_email" fetch="select">
+            <key>
+                <column name="ID_MEMBER" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.MessageEmail" />
+        </set>
+        <set name="orderCustomers" inverse="true" lazy="true" table="order_customer" fetch="select">
+            <key>
+                <column name="ID_MEMBER" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.OrderCustomer" />
+        </set>
+        <set name="levelMembers" inverse="true" lazy="true" table="level_member" fetch="select" cascade="merge">
+            <key>
+                <column name="ID_MEMBER" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.LevelMember" />
+        </set>
+        <set name="membersForIdMember" inverse="true" lazy="true" table="is_friend" fetch="select">
+            <key>
+                <column name="ID_MEMBER_FRIEND" not-null="true" />
+            </key>
+            <many-to-many entity-name="model.persistance.Member">
+                <column name="ID_MEMBER" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="membersForIdMemberFriend"  lazy="true" table="is_friend" fetch="select">
+            <key>
+                <column name="ID_MEMBER" not-null="true" />
+            </key>
+            <many-to-many entity-name="model.persistance.Member">
+                <column name="ID_MEMBER_FRIEND" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="messageMembersForIdMember" inverse="true" lazy="true" table="message_member" fetch="select">
+            <key>
+                <column name="ID_MEMBER" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.MessageMember" />
+        </set>
+        <set name="messageMembersForIdMemberSender" inverse="true" lazy="true" table="message_member" fetch="select">
+            <key>
+                <column name="ID_MEMBER_SENDER" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.MessageMember" />
+        </set>
+        <set name="membersForIdMember_1" inverse="true" lazy="true" table="follows" fetch="select">
+            <key>
+                <column name="ID_MEMBER_FOLLOW" not-null="true" />
+            </key>
+            <many-to-many entity-name="model.persistance.Member">
+                <column name="ID_MEMBER" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="membersForIdMemberFollow" table="follows" fetch="select">
+            <key>
+                <column name="ID_MEMBER" not-null="true" />
+            </key>
+            <many-to-many entity-name="model.persistance.Member">
+                <column name="ID_MEMBER_FOLLOW" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="favouriteBooks" inverse="true" lazy="true" table="favourite_book" fetch="select">
+            <key>
+                <column name="ID_MEMBER" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.FavouriteBook" />
+        </set>
+        <set name="requestFriendsForIdMemberRecipient" inverse="true" lazy="true" table="request_friend" fetch="select">
+            <key>
+                <column name="ID_MEMBER_RECIPIENT" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.RequestFriend" />
+        </set>
+        <set name="requestFriendsForIdMember" inverse="true" lazy="true" table="request_friend" fetch="select">
+            <key>
+                <column name="ID_MEMBER" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.RequestFriend" />
+        </set>
+        <set name="adresses" inverse="true" lazy="true" table="adress" fetch="select">
+            <key>
+                <column name="ID_MEMBER" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.Adress" />
+        </set>
+        <set name="responseMessageMembers" inverse="true" lazy="true" table="response_message_member" fetch="select">
+            <key>
+                <column name="ID_MEMBER" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.ResponseMessageMember" />
+        </set>
+        <set name="favouriteAuthors" inverse="true" lazy="true" table="favourite_author" fetch="select">
+            <key>
+                <column name="ID_MEMBER" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.FavouriteAuthor" />
+        </set>
+        <set name="responseMessageBooks" inverse="true" lazy="true" table="response_message_book" fetch="select">
+            <key>
+                <column name="ID_MEMBER" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.ResponseMessageBook" />
+        </set>
+    </class>
+</hibernate-mapping>

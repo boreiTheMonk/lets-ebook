@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 juin 2010 01:06:26 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="model.persistance.VersionBook" table="version_book" catalog="ebooksite">
+        <id name="idVersionBook" type="java.lang.Integer">
+            <column name="ID_VERSION_BOOK" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="book" class="model.persistance.Book" fetch="select">
+            <column name="ID_BOOK" not-null="true" />
+        </many-to-one>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="65535" />
+        </property>
+        <property name="linkBook" type="string">
+            <column name="LINK_BOOK" length="200" />
+        </property>
+        <property name="nbPages" type="java.lang.Integer">
+            <column name="NB_PAGES" />
+        </property>
+        <property name="publishingDate" type="timestamp">
+            <column name="PUBLISHING_DATE" length="19" />
+        </property>
+        <property name="title" type="string">
+            <column name="TITLE" length="32" />
+        </property>
+        <property name="price" type="java.lang.Double">
+            <column name="PRICE" precision="13" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 juin 2010 01:06:26 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="model.persistance.Abuse" table="abuse" catalog="ebooksite">
+        <id name="idAbuse" type="java.lang.Integer">
+            <column name="ID_ABUSE" />
+            <generator class="identity" />
+        </id>
+        <property name="abuseType" type="string">
+            <column name="ABUSE_TYPE" length="32" />
+        </property>
+        <property name="dateAbuse" type="date">
+            <column name="DATE_ABUSE" length="10" />
+        </property>
+        <property name="message" type="string">
+            <column name="MESSAGE" length="65535" />
+        </property>
+        <property name="idSender" type="java.lang.Integer">
+            <column name="ID_SENDER" />
+        </property>
+        <property name="idGuilty" type="java.lang.Integer">
+            <column name="ID_GUILTY" />
+        </property>
+    </class>
+</hibernate-mapping>

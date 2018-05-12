@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 juin 2010 01:06:26 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="model.persistance.Request" table="request" catalog="ebooksite">
+        <id name="idRequest" type="java.lang.Integer">
+            <column name="ID_REQUEST" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="themeGroup" class="model.persistance.ThemeGroup" fetch="select">
+            <column name="ID_GROUP" not-null="true" />
+        </many-to-one>
+        <many-to-one name="member" class="model.persistance.Member" fetch="select">
+            <column name="ID_MEMBER" not-null="true" />
+        </many-to-one>
+        <property name="title" type="string">
+            <column name="TITLE" length="100" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="65535" />
+        </property>
+        <property name="rating" type="java.lang.Double">
+            <column name="RATING" precision="13" />
+        </property>
+        <property name="publishdate" type="date">
+            <column name="PUBLISHDATE" length="10" />
+        </property>
+        <set name="messageRequests" inverse="true" lazy="true" table="message_request" fetch="select">
+            <key>
+                <column name="ID_REQUEST" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.MessageRequest" />
+        </set>
+        <set name="voteRequests" inverse="true" lazy="true" table="vote_request" fetch="select">
+            <key>
+                <column name="ID_REQUEST" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.VoteRequest" />
+        </set>
+    </class>
+</hibernate-mapping>

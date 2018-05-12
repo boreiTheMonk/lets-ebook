@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC 
+  		"-//OpenSymphony Group//XWork Validator 1.0.2//EN" 
+  		"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+    <field name="m.nom">
+        <field-validator type="requiredstring">
+<message>You must specify an name address.</message>
+        </field-validator>
+       
+    </field>
+    <field name="m.prenom">
+        <field-validator type="requiredstring">
+<message>Please type a last name.</message>
+        </field-validator>
+    
+    </field>
+        <field name="m.email">
+	        <field-validator type="requiredstring">
+				<message>You must specify an email address.</message>
+	        </field-validator>
+	        <field-validator type="email">
+				<message>The email address you specified does not appear valid.</message>
+	        </field-validator>
+    </field>
+    
+     <field name="emailConfirm">
+        <field-validator type="requiredstring">
+			<message>You must specify an email address.</message>
+        </field-validator>
+        <field-validator type="equalString">
+        	<param name="refStringName">m.email</param>
+		<message>ehhh les 2 emails ne correspondent pas</message>
+        </field-validator>
+    </field>
+</validators>

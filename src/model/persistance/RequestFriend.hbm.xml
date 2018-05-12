@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 juin 2010 01:06:26 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="model.persistance.RequestFriend" table="request_friend" catalog="ebooksite">
+        <id name="idRequestFriend" type="java.lang.Integer">
+            <column name="ID_REQUEST_FRIEND" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="memberByIdMemberRecipient" class="model.persistance.Member" fetch="select">
+            <column name="ID_MEMBER_RECIPIENT" not-null="true" />
+        </many-to-one>
+        <many-to-one name="memberByIdMember" class="model.persistance.Member" fetch="select">
+            <column name="ID_MEMBER" not-null="true" />
+        </many-to-one>
+        <property name="treated" type="java.lang.Boolean">
+            <column name="TREATED" />
+        </property>
+        <property name="uniqCode" type="string">
+            <column name="UNIQ_CODE" length="100" />
+        </property>
+        <property name="isRead" type="java.lang.Boolean">
+            <column name="IS_READ" />
+        </property>
+        <property name="isOk" type="java.lang.Boolean">
+            <column name="IS_OK" />
+        </property>
+    </class>
+</hibernate-mapping>

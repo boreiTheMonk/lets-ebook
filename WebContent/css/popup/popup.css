@@ -1,0 +1,119 @@
+/*
+-------------------------------------------------------------- 
+POPUP  STYLES
+-------------------------------------------------------------- 
+*/
+#popupSuppr {
+	display:none;
+	z-index:100;
+/*	margin-top:280px;*/
+}
+
+#popupAbuse {
+	display:none;
+	z-index:100;
+/*	margin-top:280px;*/
+}
+
+#popupEvent {
+	display:none;
+	z-index:100;
+/*	margin-top:280px;*/
+}
+
+#popupContact {
+	display:none;
+	z-index:100;
+/*	margin-top:280px;*/
+}
+#popupEditor {
+	display:none;
+	z-index:100;
+/*		margin-top:280px;*/
+}
+
+#popupLogin {
+	display:none;
+	z-index:100;
+/*		margin-top:280px;*/
+}
+.popupsmall_bg {
+	width: 233px;
+	height: 70px;
+	background:url(../../images/bg-poup2.png) no-repeat;
+	padding:29px 20px 17px 27px;
+}
+.popupsmall-innearea {
+	background-color:#ffffff;
+	width:233px;
+	text-align:center;
+}
+.popupbig_bg {
+	height:144px;
+	width:356px;
+	background:url(../../images/bg-poup1.png) no-repeat;
+	padding:15px 17px 18px 31px;
+}
+.popup-innearea-box {
+	width:351px;
+}
+.popup-innearea-box textarea {
+	border: 1px solid #9f9f9f;
+	width:344px;
+	height:96px;
+	margin-bottom:8px;
+	padding:5px;
+}
+.popupbig-innearea {
+	background-color:#ffffff;
+	width:356px;
+}
+/*popup bnts*/
+.pop-btn-small-blue {
+	background: url(../../images/pop-btn-small-blue.gif) no-repeat;
+	width: 59px;
+	height: 26px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-align: center;
+	border: 0px;
+	padding:0px 0px 0px 0px;
+	margin:0px;
+}
+.pop-btn-small-gray {
+	background: url(../../images/pop-btn-small-gray.gif) no-repeat;
+	width: 59px;
+	height: 26px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-align: center;
+	border: 0px;
+	padding:0px 0px 0px 0px;
+	margin:0px;
+}
+.pop-btn-large-blue {
+	background: url(../../images/pop-btn-largel-blue.gif) no-repeat;
+	width: 80px;
+	height: 26px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-align: center;
+	border: 0px;
+	padding:0px 0px 0px 0px;
+	margin:0px;
+}
+.pop-btn-large-gray {
+	background: url(../../images/pop-btn-large-gray.gif) no-repeat;
+	width: 80px;
+	height: 26px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-align: center;
+	border: 0px;
+	padding:0px 0px 0x 0px;
+	margin:0px;
+}

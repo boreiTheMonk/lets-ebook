@@ -1,0 +1,39 @@
+.vertical-video-scroller {
+	float: left;
+	width: 386px;
+	height:150px;
+	border: 1px solid #e2d6c9;
+}
+.holder {
+	float: left;
+	margin: 0px;
+}
+.scroll-pane {
+	width: 600px;
+	height: 410px;
+	overflow: auto;
+	float: left;
+}
+.scroll-pane-mailbox {
+	width: 413px;
+	overflow: auto;
+	float: left;
+}
+.scroll-pane-popup {
+	width: 350px;
+	height: 100px;
+	overflow: auto;
+	float: left;
+}
+.wide {
+	width: 400px;
+}
+.super-wide {
+	width: 700px;
+}
+.tall {
+	height: 410px;
+}
+#pane2 {
+	height: 150px;
+}

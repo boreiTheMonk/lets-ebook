@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 juin 2010 01:06:26 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="model.persistance.TagBook" table="tag_book" catalog="ebooksite">
+        <id name="idTag" type="java.lang.Integer">
+            <column name="ID_TAG" />
+            <generator class="identity" />
+        </id>
+        <property name="tagName" type="string">
+            <column name="TAG_NAME" length="128" />
+        </property>
+        <set name="books" inverse="false" lazy="true" table="associate_tag" fetch="select">
+            <key>
+                <column name="ID_TAG" not-null="true" />
+            </key>
+            <many-to-many entity-name="model.persistance.Book">
+                <column name="ID_BOOK" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

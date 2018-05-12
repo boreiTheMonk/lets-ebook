@@ -1,0 +1,223 @@
+/* 
+    Document   : inscription
+    Created on : 3 oct. 2009, 05:19:11
+    Author     : borei
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.titlepage{
+	width:auto;
+	height:auto;
+	
+	overflow:auto;
+	}
+
+div {
+	margin:right;
+	border:solid;
+	border-width:1px;
+	
+}
+
+.divacueuil {
+	margin:right;
+	border:solid;
+	border-width:1px;
+	height: 800px;
+	width:900px;
+	overflow:hidden;
+}
+
+
+.divacueuil2 {
+	margin:right;
+	border:solid;
+	border-width:1px;
+	height:auto;
+	width:900px;
+	overflow:visible;
+}
+
+#consultaccueil{
+    border:solid;
+	border-color:#66F;
+    width:200px;
+	height:100%;
+	float:left;
+}
+#consultindex{
+    border:solid;
+	border-color:#66F;
+    width:200px;
+	float:left;
+	
+}
+
+#consultindexT{
+    border:solid;
+	border-color:#66F;
+   
+	
+	
+}
+
+.siteTitle {
+	
+
+	margin:60px;
+	font-size:24px;
+	border-width:1px;
+	text-align:center;
+
+
+}
+
+.divTitle{
+	text-align:center;
+overflow: hidden;
+height:180px;
+	
+	}
+	
+.bandroite{
+		
+	line-height:60px;
+	padding:10px;
+	width:150px;
+	height:100%;
+	float:right;
+	font-size:10px;
+	
+	}	
+
+.page_central{
+	
+	border:none;
+	padding:10px;
+	}
+
+
+/****************principale***************/
+
+.rechN{
+    width:200px;
+	height:180px;
+	
+	float:right;
+	
+	}
+
+
+
+
+/***************************************/
+
+
+
+#menu{
+    border:solid;border-color:#0F3;
+	height:auto;
+	
+}
+
+#centre{
+    border:dashed;border-color:#0CC;
+    font-size:30px;
+     width:700px;
+    height:300px;
+
+}
+
+#petitbloc{
+	width:100px;
+	height:100px;
+	margin:20;
+	/*float:left;*/
+}
+
+#petitblocright{
+	width:200px;
+	height:180px;
+	
+	float:right;
+}
+
+
+#rech{
+    border:solid;border-color:#069;
+    width:150px;
+    
+}
+
+#rechA{
+    border:solid;border-color:#C06;
+    width:300px;
+}
+
+#consult{
+    border:solid;border-color:#66F;
+    width:190px;
+	overflow:auto;
+}
+
+#bas{
+    clear:left;
+}
+
+/*groupes*/
+#blanc{
+     border:none;
+     overflow:auto;
+}
+
+#blockmenu{
+      width:450px;
+    height:450px;
+    overflow:auto;
+      margin-left: auto;
+  margin-right: auto;
+}
+
+#membre{
+      width:100px;
+    height:400px;
+    overflow:auto;
+}
+
+#message{
+      width:400px;
+    height:400px;
+    overflow:auto;
+}
+/* gerer livres*/
+#imglivre{
+ width:80px;
+ height:70px;
+    overflow:auto;
+}
+
+/*creer groupes */
+#wrapform{
+width:400px;
+overflow:auto;
+}
+
+/* description livres */
+
+#comm{
+width:300px;
+
+}
+#info{
+width:200px;
+
+}
+fieldset { margin-bottom: 6px; }
+fieldset { border: 1px solid #000000; }
+/*fieldset, fieldset td, fieldset p, fieldset li { font-size: 11px; }*/

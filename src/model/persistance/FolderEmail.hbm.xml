@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 juin 2010 01:06:26 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="model.persistance.FolderEmail" table="folder_email" catalog="ebooksite">
+        <id name="idFolder" type="java.lang.Integer">
+            <column name="ID_FOLDER" />
+            <generator class="identity" />
+        </id>
+        <property name="subject" type="string">
+            <column name="SUBJECT" length="100" />
+        </property>
+        <set name="messageEmails" inverse="true" lazy="true" table="message_email" fetch="select">
+            <key>
+                <column name="ID_FOLDER" />
+            </key>
+            <one-to-many class="model.persistance.MessageEmail" />
+        </set>
+    </class>
+</hibernate-mapping>

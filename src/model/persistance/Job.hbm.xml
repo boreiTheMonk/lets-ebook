@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 juin 2010 01:06:26 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="model.persistance.Job" table="job" catalog="ebooksite">
+        <id name="idJob" type="java.lang.Integer">
+            <column name="ID_JOB" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="classMember" class="model.persistance.ClassMember" fetch="select">
+            <column name="ID_CLASS" not-null="true" />
+        </many-to-one>
+        <property name="levelJobMin" type="java.lang.Integer">
+            <column name="LEVEL_JOB_MIN" />
+        </property>
+        <property name="levelJobMax" type="java.lang.Integer">
+            <column name="LEVEL_JOB_MAX" />
+        </property>
+        <property name="name" type="string">
+            <column name="NAME" length="100" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="65535" />
+        </property>
+        <property name="expMin" type="java.lang.Integer">
+            <column name="EXP_MIN" />
+        </property>
+        <property name="expMax" type="java.lang.Integer">
+            <column name="EXP_MAX" />
+        </property>
+        <set name="levels" inverse="false" lazy="true" table="job_level" fetch="select">
+            <key>
+                <column name="ID_JOB" not-null="true" />
+            </key>
+            <many-to-many entity-name="model.persistance.Level">
+                <column name="ID_LEVEL" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

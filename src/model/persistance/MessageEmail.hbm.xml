@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 juin 2010 01:06:26 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="model.persistance.MessageEmail" table="message_email" catalog="ebooksite">
+        <id name="idMessage" type="java.lang.Integer">
+            <column name="ID_MESSAGE" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="messageEmailByIdMessageRoots" class="model.persistance.MessageEmail" fetch="select" cascade="delete">
+
+            <column name="ID_MESSAGE_ROOTS" />
+        </many-to-one>
+        <many-to-one name="messageEmailByIdMessageFollow" class="model.persistance.MessageEmail" fetch="select"  cascade="delete">
+            <column name="ID_MESSAGE_FOLLOW" />
+        </many-to-one>
+        <many-to-one name="memberByIdMember" class="model.persistance.Member" fetch="select">
+            <column name="ID_MEMBER" not-null="true" />
+        </many-to-one>
+        <many-to-one name="memberByIdMemberSender" class="model.persistance.Member" fetch="select">
+            <column name="ID_MEMBER_SENDER" not-null="true" />
+        </many-to-one>
+        <many-to-one name="folderEmail" class="model.persistance.FolderEmail" fetch="select">
+            <column name="ID_FOLDER" />
+        </many-to-one>
+        <property name="publishDate" type="timestamp">
+            <column name="PUBLISH_DATE" length="19" />
+        </property>
+        <property name="body" type="string">
+            <column name="BODY" length="65535" />
+        </property>
+        <property name="subject" type="string">
+            <column name="SUBJECT" length="100" />
+        </property>
+        <property name="isRead" type="java.lang.Boolean">
+            <column name="IS_READ" />
+        </property>
+        
+            <set name="memberDeleted" inverse="false" lazy="true" table="member_delete_email" fetch="select">
+            <key>
+                <column name="ID_MESSAGE_EMAIL" not-null="true" />
+            </key>
+            <many-to-many entity-name="model.persistance.Member">
+                <column name="ID_MEMBER" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="messageEmailsForIdMessageRoots" inverse="true" lazy="true" table="message_email" fetch="select" cascade="delete" order-by="PUBLISH_DATE">
+            <key>
+                <column name="ID_MESSAGE_ROOTS" />
+            </key>
+            <one-to-many class="model.persistance.MessageEmail" />
+        </set>
+        <set name="messageEmailsForIdMessageFollow" inverse="true" lazy="true" table="message_email" fetch="select" cascade="delete">
+            <key>
+                <column name="ID_MESSAGE_FOLLOW" />
+            </key>
+            <one-to-many class="model.persistance.MessageEmail" />
+        </set>
+    </class>
+</hibernate-mapping>

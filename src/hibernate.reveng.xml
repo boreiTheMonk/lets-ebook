@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table-filter match-name="abuse" match-catalog="ebooksite"></table-filter>
+	<table-filter match-name="adress" match-catalog="ebooksite"></table-filter>
+	<table-filter match-name="associate_tag"
+		match-catalog="ebooksite">
+	</table-filter>
+	<table-filter match-name="book" match-catalog="ebooksite"></table-filter>
+	<table-filter match-name="category" match-catalog="ebooksite"></table-filter>
+	<table-filter match-name="class_member" match-catalog="ebooksite"></table-filter>
+	<table-filter match-name="classify" match-catalog="ebooksite"></table-filter>
+	<table-filter match-name="favourite_author"
+		match-catalog="ebooksite">
+	</table-filter>
+	<table-filter match-name="favourite_book"
+		match-catalog="ebooksite">
+	</table-filter>
+	<table-filter match-name="folder_email" match-catalog="ebooksite"></table-filter>
+	<table-filter match-name="follow_book" match-catalog="ebooksite"></table-filter>
+	<table-filter match-name="follows" match-catalog="ebooksite"></table-filter>
+	<table-filter match-name="is_friend" match-catalog="ebooksite"></table-filter>
+	<table-filter match-name="job" match-catalog="ebooksite"></table-filter>
+	<table-filter match-name="job_level" match-catalog="ebooksite"></table-filter>
+	<table-filter match-name="level" match-catalog="ebooksite"></table-filter>
+	<table-filter match-name="level_member" match-catalog="ebooksite"></table-filter>
+	<table-filter match-name="member" match-catalog="ebooksite"></table-filter>
+	<table-filter match-name="message_book" match-catalog="ebooksite"></table-filter>
+	<table-filter match-name="message_email"
+		match-catalog="ebooksite">
+	</table-filter>
+	<table-filter match-name="message_group"
+		match-catalog="ebooksite">
+	</table-filter>
+	<table-filter match-name="message_member"
+		match-catalog="ebooksite">
+	</table-filter>
+	<table-filter match-name="message_request"
+		match-catalog="ebooksite">
+	</table-filter>
+	<table-filter match-name="order_book" match-catalog="ebooksite"></table-filter>
+	<table-filter match-name="order_customer"
+		match-catalog="ebooksite">
+	</table-filter>
+	<table-filter match-name="register" match-catalog="ebooksite"></table-filter>
+	<table-filter match-name="request" match-catalog="ebooksite"></table-filter>
+	<table-filter match-name="request_friend"
+		match-catalog="ebooksite">
+	</table-filter>
+	<table-filter match-name="response_message_book"
+		match-catalog="ebooksite">
+	</table-filter>
+	<table-filter match-name="response_message_group"
+		match-catalog="ebooksite">
+	</table-filter>
+	<table-filter match-name="response_message_member"
+		match-catalog="ebooksite">
+	</table-filter>
+	<table-filter match-name="tag_book" match-catalog="ebooksite"></table-filter>
+	<table-filter match-name="theme" match-catalog="ebooksite"></table-filter>
+	<table-filter match-name="theme_group" match-catalog="ebooksite"></table-filter>
+	<table-filter match-name="upload" match-catalog="ebooksite"></table-filter>
+	<table-filter match-name="version_book" match-catalog="ebooksite"></table-filter>
+	<table-filter match-name="vote_book" match-catalog="ebooksite"></table-filter>
+	<table-filter match-name="vote_member" match-catalog="ebooksite"></table-filter>
+	<table-filter match-name="vote_request" match-catalog="ebooksite"></table-filter>
+</hibernate-reverse-engineering>

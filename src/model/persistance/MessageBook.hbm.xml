@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 juin 2010 01:06:26 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="model.persistance.MessageBook" table="message_book" catalog="ebooksite">
+        <id name="idMessage" type="java.lang.Integer">
+            <column name="ID_MESSAGE" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="book" class="model.persistance.Book" fetch="select">
+            <column name="ID_BOOK" not-null="true" />
+        </many-to-one>
+        <many-to-one name="member" class="model.persistance.Member" fetch="select">
+            <column name="ID_MEMBER" not-null="true" />
+        </many-to-one>
+        <property name="publishDate" type="timestamp">
+            <column name="PUBLISH_DATE" length="19" />
+        </property>
+        <property name="body" type="string">
+            <column name="BODY" length="65535" />
+        </property>
+          
+        <property name="deleted" type="boolean">
+            <column name="DELETED" default="0" />
+        </property>
+        
+        <set name="responseMessageBooks" inverse="true" lazy="true" table="response_message_book" fetch="select">
+            <key>
+                <column name="ID_MESSAGE_REPLYTOMB" />
+            </key>
+            <one-to-many class="model.persistance.ResponseMessageBook" />
+        </set>
+    </class>
+</hibernate-mapping>

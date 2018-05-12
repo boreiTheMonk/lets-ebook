@@ -1,0 +1,73 @@
+﻿.comboboxContainer {
+	border: none;
+	outline: none;
+}
+.comboboxValueContainer {
+	width: 151px;
+	height: 20px;
+	border: 1px solid #e2d6c9;
+}
+.comboboxValueContent {
+	padding-left: 5px;
+	color: #000;
+	max-height: 20px;
+}
+.comboboxDropDownContainer {
+	width: 151px;
+	border-left: 1px solid #e2d6c9;
+	border-right: 1px solid #e2d6c9;
+	border-bottom: 1px solid #e2d6c9;
+	background: #fff;
+	line-height: 20px;
+	overflow: hidden;
+	text-indent: 5px;
+	cursor: default;
+	color: #000;
+}
+.comboboxDropDownButton {
+	width: 20px;
+	height: 22px;
+	background-image: url(../../images/vista_button_black_glow.gif);
+}
+.comboboxDropDownButton2 {
+	width: 20px;
+	height: 22px;
+	background-image: url(../../images/vista_button_black_glow2.gif);
+}
+.comboboxGroupItemHeader {
+	display: block;
+	border-bottom: dashed 1px #fff;
+	font-weight: bold;
+}
+.comboboxGroupItemContainer {
+	padding-left: 0px;
+	margin-left: 0px;
+}
+.comboboxItem {
+	font-weight: normal;
+	font-style: normal;
+}
+.comboboxItemHover {
+	background: #e2d6c9;
+}
+.comboboxGroupItemContainer .comboboxItem {
+	padding-left: 20px;
+	margin-left: 0px;
+}
+.combo-row {
+	clear: both;
+	float: left;
+	width: 580px;
+	margin-bottom: 15px;
+}
+.combo-col-left {
+	text-align: right;
+	float: left;
+	width: 230px;
+	line-height: 20px;
+	margin-right:30px;
+}
+.combo-col-right {
+	float: right;
+	width: 320px;
+}

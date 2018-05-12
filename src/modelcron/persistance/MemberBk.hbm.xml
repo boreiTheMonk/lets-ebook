@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 14, 2010 7:01:22 PM by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="modelcron.persistance.MemberBk" table="member_bk" catalog="backup_ebooksite">
+        <id name="idMember" type="java.lang.Integer">
+            <column name="ID_MEMBER" />
+            <generator class="identity" />
+        </id>
+        <property name="login" type="string">
+            <column name="LOGIN" length="50" />
+        </property>
+        <property name="avatarUrl" type="string">
+            <column name="AVATAR_URL" length="200" />
+        </property>
+        <property name="avatarUrlBig" type="string">
+            <column name="AVATAR_URL_BIG" length="200" />
+        </property>
+        <property name="keyAvatar" type="string">
+            <column name="KEY_AVATAR" length="200" />
+        </property>
+        <property name="keyAvatarbig" type="string">
+            <column name="KEY_AVATARBIG" length="200" />
+        </property>
+        <property name="okL" type="java.lang.Boolean">
+            <column name="OK_L" />
+        </property>
+        <property name="okB" type="java.lang.Boolean">
+            <column name="OK_B" />
+        </property>
+        <set name="bookBks" inverse="true" lazy="true" table="book_bk" fetch="select">
+            <key>
+                <column name="ID_MEMBER" not-null="true" />
+            </key>
+            <one-to-many class="modelcron.persistance.BookBk" />
+        </set>
+    </class>
+</hibernate-mapping>

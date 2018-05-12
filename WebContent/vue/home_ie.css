@@ -1,0 +1,169 @@
+
+#wall {
+	height: 294px;
+	 /*padding: 10px;*/
+	 width: 680px;
+}
+#pane3 {
+	height: 190px;
+}
+#pane4 {
+	height: 190px;
+}
+p {
+    background: transparent;
+}
+/* 
+    Document   : home
+    Created on : 30 janv. 2010, 03:48:02
+    Author     : borei
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.jScrollPaneContainer {
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+	/*width:700px;*/
+       /* border: solid;
+        border-width: 1px;*/
+        padding: 7px;
+        background-image: url(../images/fondwall.png);
+        
+}
+
+.jScrollPaneTrack {
+	position: absolute;
+	cursor: pointer;
+	right: 0;
+	top: 0;
+	height: 100%;
+	background: #aaa;
+
+}
+.jScrollPaneDrag {
+	position: absolute;
+	background: #666;
+	cursor: pointer;
+	overflow: hidden;
+	
+}
+.jScrollPaneDragTop {
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+
+}
+.jScrollPaneDragBottom {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	
+}
+a.jScrollArrowUp {
+	display: block;
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	right: 0;
+	text-indent: -2000px;
+	overflow: hidden;
+	/*background-color: #666;*/
+	height: 9px;
+}
+a.jScrollArrowUp:hover {
+	/*background-color: #f60;*/
+}
+
+a.jScrollArrowDown {
+	display: block;
+	position: absolute;
+	z-index: 1;
+	bottom: 0;
+	right: 0;
+	text-indent: -2000px;
+	overflow: hidden;
+	/*background-color: #666;*/
+	height: 9px;
+}
+a.jScrollArrowDown:hover {
+	/*background-color: #f60;*/
+}
+a.jScrollActiveArrowButton, a.jScrollActiveArrowButton:hover {
+	/*background-color: #f00;*/
+}
+
+#sliderContent { 
+	z-index: 1;
+	width:650px; 
+	margin:10px; 
+	/*margin:auto; 
+	padding:0 50px 50px; 
+	background-color:#ebebeb; 
+	border:1px solid #898989; */
+
+	}
+.viewer { 
+	z-index: 1;
+	width:650px; 
+	height:343px; 
+	margin:0 auto 15px; 
+	padding:1px; 
+	overflow:hidden; 
+	position:relative; 
+	border:1px solid #898989; 
+	
+		background-attachment: fixed;
+	background: url("../images/fond_oeuvres.png");
+	}
+	
+.item_book { 
+	width:304px; 
+	float:left; 
+	font-family:Tahoma; 
+	text-align:center; 
+	background-color:transparent;
+	}
+	
+	.content-conveyor { 
+	width:610px; 
+	height:335px; 
+	position:relative; 
+	}
+
+	
+	
+	.item dl { margin:10px 0; }
+.item_book dt, .item_book dd { float:left; width:149px; text-align:right; margin:0; font-size:70%; }
+.item_book dt { font-weight:bold; margin-right:5px; }
+.item_book dd { text-align:left; }
+.item_book img { border:1px solid #898989; background-color:#ffffff; padding:1px; }
+
+#wall_bar {
+	background-image: url("../images/wall_bar.png");
+	 
+}
+
+#work_bar {
+	background-image: url("../images/work_bar.png");
+	 width: 164px;
+	 height: 30px;
+	 margin: 10px;
+	 margin-top:30px;
+	 float: left;
+}
+
+#info_membre{
+padding: 5px;
+width:120px;
+float: right; 
+background:url('../images/3.png ');
+}

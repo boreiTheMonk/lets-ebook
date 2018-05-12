@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<decorators defaultdir="/decorators">
+    <!-- Any urls that are excluded will never be decorated by Sitemesh -->
+    <excludes>
+       <pattern>/showInvoice*</pattern>
+       <pattern>/vue/invoice.jsp</pattern>
+        <pattern>/exclude/*</pattern>
+    </excludes>
+
+    <decorator name="main_member" page="index_member.jsp" />
+        
+    <decorator name="main_guest" page="index_guest.jsp"> 
+    <pattern>/*</pattern>
+      <pattern>/ajax/*</pattern>
+    </decorator>
+	<decorator name="empty_inline" page="empty_inline.jsp">
+		
+	</decorator>	
+	<decorator name="empty_inline2" page="empty_inline2.jsp"/>
+	
+
+
+   
+</decorators>

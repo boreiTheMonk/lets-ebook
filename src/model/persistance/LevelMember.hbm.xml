@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 juin 2010 01:06:26 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="model.persistance.LevelMember" table="level_member" catalog="ebooksite">
+        <id name="idLevelMember" type="java.lang.Integer">
+            <column name="ID_LEVEL_MEMBER" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="classMember" class="model.persistance.ClassMember" fetch="select">
+            <column name="ID_CLASS" not-null="true" />
+        </many-to-one>
+        <many-to-one name="member" class="model.persistance.Member" fetch="select">
+            <column name="ID_MEMBER" not-null="true" />
+        </many-to-one>
+        <many-to-one name="level" class="model.persistance.Level" fetch="select">
+            <column name="ID_LEVEL" />
+        </many-to-one>
+        <property name="level_1" type="java.lang.Integer">
+            <column name="LEVEL" />
+        </property>
+        <property name="exp" type="java.lang.Integer">
+            <column name="EXP" />
+        </property>
+        <property name="expcache" type="java.lang.Integer">
+            <column name="EXPCACHE" />
+        </property>
+        <property name="nameJob" type="string">
+            <column name="NAME_JOB" length="32" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 juin 2010 01:06:26 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="model.persistance.ClassMember" table="class_member" catalog="ebooksite">
+        <id name="idClass" type="java.lang.Integer">
+            <column name="ID_CLASS" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="100" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="65535" />
+        </property>
+        <property name="isPay" type="java.lang.Boolean">
+            <column name="IS_PAY" />
+        </property>
+        <set name="jobs" inverse="true" lazy="true" table="job" fetch="select">
+            <key>
+                <column name="ID_CLASS" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.Job" />
+        </set>
+        <set name="levelMembers" inverse="true" lazy="true" table="level_member" fetch="select">
+            <key>
+                <column name="ID_CLASS" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.LevelMember" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 juin 2010 01:06:26 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="model.persistance.Book" table="book" catalog="ebooksite">
+        <id name="idBook" type="java.lang.Integer">
+            <column name="ID_BOOK" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="member" class="model.persistance.Member" fetch="select">
+            <column name="ID_MEMBER" not-null="true" />
+        </many-to-one>
+        <many-to-one name="category" class="model.persistance.Category" fetch="select">
+            <column name="ID_CATEGORY" not-null="true" />
+        </many-to-one>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="65535" />
+        </property>
+        <property name="linkBook" type="string">
+            <column name="LINK_BOOK" length="200" />
+        </property>
+        <property name="nbPages" type="java.lang.Integer">
+            <column name="NB_PAGES" />
+        </property>
+        <property name="nbRead" >
+            <column name="NB_READ" default="0"/>
+        </property>
+        <property name="totalRating" type="java.lang.Double">
+            <column name="TOTAL_RATING" precision="13" />
+        </property>
+        <property name="isValid" type="java.lang.Boolean">
+            <column name="IS_VALID" />
+        </property>
+        <property name="publishingDate" type="timestamp">
+            <column name="PUBLISHING_DATE" length="19" />
+        </property>
+        <property name="linkImage" type="string">
+            <column name="LINK_IMAGE" length="100" />
+        </property>
+        <property name="title" type="string">
+            <column name="TITLE" length="32" />
+        </property>
+        <property name="nbDownload" >
+            <column name="NB_DOWNLOAD" default="0" />
+        </property>
+        <property name="price" type="java.lang.Double">
+            <column name="PRICE" precision="13" />
+        </property>
+        <property name="isSell" type="java.lang.Boolean">
+            <column name="IS_SELL" />
+        </property>
+        <property name="isMine" type="java.lang.Boolean">
+            <column name="IS_MINE" />
+        </property>
+        <property name="author" type="string">
+            <column name="AUTEUR" />
+        </property>
+        <property name="uniqCode" type="string">
+            <column name="UNIQ_CODE" length="50" />
+        </property>
+        <property name="linkImageBig" type="string">
+            <column name="LINK_IMAGE_BIG" length="200" />
+        </property>
+           <property name="deleted" type="boolean">
+            <column name="DELETED" default="0" />
+        </property>
+         <property name="key_linkImageBig" type="string">
+            <column name="KEY_LINK_IMAGE_BIG" length="200" />
+        </property>
+         
+        <property name="key_linkImage" type="string">
+            <column name="KEY_LINK_IMAGE" length="200" />
+        </property>
+          <property name="key_linkBook" type="string">
+            <column name="KEY_LINK_BOOK" length="200" />
+        </property>
+        <property name="proofExplain" type="string">
+            <column name="PROOF_EXPLAIN" length="65535" />
+        </property>
+        <property name="demoPage" type="string">
+            <column name="DEMO_PAGE" length="254" />
+        </property>
+        <property name="linkBookDemo" type="string">
+            <column name="LINK_BOOK_DEMO" length="254" />
+        </property>
+        <set name="orderBooks" inverse="true" lazy="true" table="order_book" fetch="select">
+            <key>
+                <column name="ID_BOOK" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.OrderBook" />
+        </set>
+        <set name="members" inverse="true" lazy="true" table="follow_book" fetch="select">
+            <key>
+                <column name="ID_BOOK" not-null="true" />
+            </key>
+            <many-to-many entity-name="model.persistance.Member">
+                <column name="ID_MEMBER" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="themeGroups" inverse="true" lazy="true" table="upload" fetch="select" >
+            <key>
+                <column name="ID_BOOK" not-null="true" />
+            </key>
+            <many-to-many entity-name="model.persistance.ThemeGroup" >
+                <column name="ID_GROUP" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="tagBooks" inverse="true" lazy="true" table="associate_tag" fetch="select">
+            <key>
+                <column name="ID_BOOK" not-null="true" />
+            </key>
+            <many-to-many entity-name="model.persistance.TagBook">
+                <column name="ID_TAG" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="voteBooks" inverse="true" lazy="true" table="vote_book" fetch="select">
+            <key>
+                <column name="ID_BOOK" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.VoteBook" />
+        </set>
+        <set name="messageBooks" inverse="true" lazy="true" table="message_book" fetch="select">
+            <key>
+                <column name="ID_BOOK" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.MessageBook" />
+        </set>
+        <set name="versionBooks" inverse="true" lazy="true" table="version_book" fetch="select">
+            <key>
+                <column name="ID_BOOK" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.VersionBook" />
+        </set>
+        
+        <set name="proofDoc" inverse="true" lazy="true" table="proof_doc" fetch="select">
+            <key>
+                <column name="ID_BOOK" not-null="true" />
+            </key>
+            <one-to-many class="model.persistance.Proof_doc" />
+        </set>
+        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,106 @@
+/* Carousel styles */
+#carousel1 {
+	outline:none;
+}
+#carousel1 ul {
+	list-style: none;
+}
+#carousel1 ul li {
+	width: 90px;
+	padding: 0 0px;
+	background: #000;
+	height: 20px;
+}
+#carousel1 ul li.odd {
+	background: #666;
+}
+#carousel1 .jcarousel-scope {
+	position: relative;
+	padding: 0px 0;
+	width: 200px;
+}
+#carousel1 .jcarousel-next {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 90px;
+	height: 20px;
+	cursor: pointer;
+	border: none;
+	text-indent: -2000px;
+	background:url(../../images/video-bullet-right.gif) no-repeat center;
+}
+#carousel1 .jcarousel-next:hover, #carousel1 button.hover {
+	background:url(../../images/video-bullet-right.gif) no-repeat center;
+}
+#carousel1 .jcarousel-next-disabled, #carousel1 .jcarousel-next-disabled:hover {
+	background:url(../../images/video-bullet-right.gif) no-repeat center;
+	cursor: default;
+}
+#carousel1 .jcarousel-prev {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 90px;
+	height: 20px;
+	cursor: pointer;
+	border: none;
+	text-indent: -2000px;
+	background:url(../../images/video-bullet-left.gif) no-repeat center;
+}
+#carousel1 .jcarousel-prev:hover {
+	background:url(../../images/video-bullet-left.gif) no-repeat center;
+}
+#carousel1 .jcarousel-prev-disabled, #carousel1 .jcarousel-prev-disabled:hover {
+	background:url(../../images/video-bullet-left.gif) no-repeat center;
+	cursor: default;
+}
+#carousel2 ul {
+	list-style: none;
+}
+#carousel2 ul li {
+	width: 80px;
+	height: 100px;
+	padding: 0 5px;
+}
+#carousel2 .jcarousel-scope {
+	position: relative;
+	padding: 0 30px;
+	width: 520px;
+}
+#carousel2 .jcarousel-next {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 20px;
+	height: 100px;
+	cursor: pointer;
+	border: none;
+	text-indent: -2000px;
+	background:url(../../images/video-bullet-right.gif) no-repeat center;
+}
+#carousel2 .jcarousel-next:hover {
+	background:url(../../images/video-bullet-right.gif) no-repeat center;
+}
+#carousel2 .jcarousel-next-disabled, #carousel2 .jcarousel-next-disabled:hover {
+	background:url(../../images/video-bullet-right.gif) no-repeat center;
+	cursor: default;
+}
+#carousel2 .jcarousel-prev {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 20px;
+	height: 100px;
+	cursor: pointer;
+	border: none;
+	text-indent: -2000px;
+	background:url(../../images/video-bullet-left.gif) no-repeat center;
+}
+#carousel2 .jcarousel-prev:hover {
+	background:url(../../images/video-bullet-left.gif) no-repeat center;
+}
+#carousel2 .jcarousel-prev-disabled, #carousel2 .jcarousel-prev-disabled:hover {
+	background:url(../../images/video-bullet-left.gif) no-repeat center;
+	cursor: default;
+}

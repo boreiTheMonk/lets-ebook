@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 juin 2010 01:06:26 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="model.persistance.VoteRequest" table="vote_request" catalog="ebooksite">
+        <id name="idVoteRequest" type="java.lang.Integer">
+            <column name="ID_VOTE_REQUEST" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="request" class="model.persistance.Request" fetch="select">
+            <column name="ID_REQUEST" not-null="true" />
+        </many-to-one>
+        <property name="ip" type="string">
+            <column name="IP" length="70" />
+        </property>
+        <property name="rating" type="java.lang.Double">
+            <column name="RATING" precision="13" />
+        </property>
+        <property name="idMember" type="java.lang.Integer">
+            <column name="ID_MEMBER" />
+        </property>
+    </class>
+</hibernate-mapping>

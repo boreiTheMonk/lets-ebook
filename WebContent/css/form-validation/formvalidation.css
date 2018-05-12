@@ -1,0 +1,202 @@
+/*********/
+.form {
+	clear: both;
+	float: left;
+	width: 575px;
+	padding: 0px 20px;
+}
+.form dd {
+	clear: both;
+	float: left;
+	width: 575px;
+	margin-bottom:5px;
+	list-style:none;
+	position:relative;
+	padding:4px 4px 6px 0px;
+}
+.form dd:hover {
+	/*move when hover useless*/
+	/*padding:4px 4px 4px 0px;*/
+}
+.form dd label {
+	text-align: right;
+	float: left;
+	width: 210px;
+	margin-right: 25px;
+	line-height:20px;
+}
+.form input.form-input1 {
+	background-color: #FFFFFF;
+	width: 338px;
+	height: 20px;
+	border: 1px solid #e2d6c9;
+}
+.form-text-area1 {
+	background-color: #FFFFFF;
+	width: 338px;
+	height: 149px;
+	border: 1px solid #e2d6c9;
+}
+.form input.form-input-file {
+	margin-left:1px;
+}
+.form dd img {
+	position:absolute;
+	left:5px;
+	margin-left:210px;
+	margin-top:2px;
+}
+.msg {
+	text-align:left;
+	float:right;
+	width: 334px;
+}
+.form .error {
+	border:1px solid #A90000;
+	padding:4px 4px 4px 0px;
+	background-color:#F8E5E5;
+}
+.form .success {
+	border:1px solid #74F019;
+	padding:4px 4px 4px 0px;
+	background-color:#DEF8CA;
+}
+.form .selected {
+	border:1px solid #1AA8E1;
+	padding:4px 4px 4px 0px;
+	background-color:#8DD8F7;
+}
+#form-note {
+	width:590px;
+	float:left;
+	text-align:center;
+}
+#form-note img {
+	margin:0px 0px 0px 15px;
+	float:left;
+}
+.form-row {
+	clear: both;
+	float: left;
+	width: 580px;
+	margin-bottom: 15px;
+}
+.form-col-left {
+	text-align: right;
+	float: left;
+	width: 225px;
+	line-height: 20px;
+	margin-right: 15px;
+}
+.form-col-right {
+	float: right;
+	width: 340px;
+}
+.btn-large-blue {
+	background: url(../../images/btn-large-blue.gif) no-repeat;
+	width: 134px;
+	height: 32px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+	line-height: 32px;
+	text-align: center;
+	border: 0px;
+}
+.btn-large-red {
+	background: url(../../images/btn-large-red.gif) no-repeat;
+	width: 163px;
+	height: 53px;
+	font-size: 18px;
+	color: #FFFFFF;
+	line-height: 53px;
+	text-align: center;
+	border: 0px;
+}
+.btn-small-gray {
+	background: url(../../images/btn-small-gray.gif) no-repeat;
+	width: 61px;
+	height: 23px;
+	line-height: 23px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-align: center;
+	border: 0px;
+}
+.btn-blue {
+	background: url(../../images/btn-blue.gif) no-repeat;
+	width: 103px;
+	height: 28px;
+	line-height: 28px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-align: center;
+	border: 0px;
+}
+/*form-mailbox*/
+
+.form-mailbox {
+	float: right;
+	width: 412px;
+}
+.form-mailbox dd {
+	clear: both;
+	float: left;
+	width: 408px;
+	margin-bottom:5px;
+	list-style:none;
+	position:relative;
+	padding:4px 4px 6px 4px;
+}
+.form-mailbox dd:hover {
+/*padding:4px 4px 4px 4px;*/
+}
+.form-mailbox dd label {
+	float: left;
+	width: 75px;
+	margin-right: 10px;
+}
+.form-mailbox input.form-input1 {
+	background-color: #FFFFFF;
+	float: left;
+	width: 311px;
+	height: 20px;
+	border: 1px solid #e2d6c9;
+}
+.form-text-area1 {
+	background-color: #FFFFFF;
+	width: 338px;
+	height: 149px;
+	border: 1px solid #e2d6c9;
+}
+.form-mailbox input.form-input-file {
+	margin-left:1px;
+}
+.form-mailbox dd img {
+	position:absolute;
+	left:5px;
+	margin-left:60px;
+	margin-top:2px;
+}
+.msg-mailbox {
+	text-align:left;
+	float:right;
+	width: 325px;
+}
+.form-mailbox .error {
+	border:1px solid #A90000;
+	padding:4px 4px 4px 4px;
+	background-color:#F8E5E5;
+}
+.form-mailbox .success {
+	border:1px solid #74F019;
+	padding:4px 4px 4px 4px;
+	background-color:#DEF8CA;
+}
+.form-mailbox .selected {
+	border:1px solid #1AA8E1;
+	padding:4px 4px 4px 4px;
+	background-color:#8DD8F7;
+}

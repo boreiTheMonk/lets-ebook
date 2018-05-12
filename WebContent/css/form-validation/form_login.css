@@ -1,0 +1,74 @@
+.form_login {
+	clear: both;
+	float: left;
+	width: 330px;
+	height:110px;
+	padding: 0px ;
+}
+.form_login dd {
+	clear: both;
+	float: left;
+	/*width: 575px;*/
+	margin-bottom:5px;
+	list-style:none;
+	position:relative;
+	padding:4px 4px 6px 0px;
+}
+
+.form_login dd label {
+	text-align: right;
+	float: left;
+	width: 100px;
+	margin-right: 25px;
+	line-height:20px;
+}
+.form_login input.form-input1 {
+	background-color: #FFFFFF;
+	width: 200px;
+	height: 20px;
+	border: 1px solid #e2d6c9;
+}
+.form_login dd img {
+	position:absolute;
+	left:5px;
+	margin-left:210px;
+	margin-top:2px;
+}
+
+.form_lost_pass {
+	clear: both;
+	float: left;
+	width: 330px;
+	height:80px;
+	padding: 0px ;
+}
+.form_lost_pass dd {
+	clear: both;
+	float: left;
+	/*width: 575px;*/
+	margin-bottom:5px;
+	margin-top:10px;
+	list-style:none;
+	position:relative;
+	padding:4px 4px 6px 0px;
+}
+
+.form_lost_pass dd label {
+	text-align: right;
+	float: left;
+	width: 100px;
+	margin-right: 25px;
+	line-height:20px;
+}
+.form_lost_pass input.form-input1 {
+	background-color: #FFFFFF;
+	width: 200px;
+	height: 20px;
+	border: 1px solid #e2d6c9;
+}
+.form_lost_pass dd img {
+	position:absolute;
+	left:5px;
+	margin-left:210px;
+	margin-top:2px;
+}
